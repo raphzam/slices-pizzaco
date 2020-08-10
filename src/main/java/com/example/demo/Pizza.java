@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Table(name = "pizza_table")
 public class Pizza {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
@@ -13,6 +14,8 @@ public class Pizza {
     @ManyToMany
     private Set<Ingredient> ingredients;
 
+    @ManyToOne
+    private PizzaOrder pizzaOrder;
 
     public Pizza() {
     }
@@ -38,5 +41,13 @@ public class Pizza {
             this.ingredients=new HashSet<Ingredient>();
         }
         this.ingredients.add(ingredient);
+    }
+
+    public PizzaOrder getOrder() {
+        return pizzaOrder;
+    }
+
+    public void setOrder(PizzaOrder pizzaOrder) {
+        this.pizzaOrder = pizzaOrder;
     }
 }
