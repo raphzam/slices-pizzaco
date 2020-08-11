@@ -21,76 +21,60 @@ public class CommandLineRunnerBean implements CommandLineRunner {
     @Autowired
     UserRepository userRepository;
 
-    public void run (String...args){
+    public void run(String... args) {
 
-        User user1 = new User("userPizza","password",true);
+        User user1 = new User("userPizza", "password", true);
         userRepository.save(user1);
 
-        Ingredient cheese = new Ingredient();
-        cheese.setName("Mozzarella");
-        ingredientRepository.save(cheese);
+        //DOUGH
 
-        Ingredient vegetable = new Ingredient();
-        vegetable.setName("Green Pepper");
-        ingredientRepository.save(vegetable);
+        Ingredient ing1 = new Ingredient();
+        ing1.setName("NY Style");
+        ingredientRepository.save(ing1);
 
-        Ingredient protein = new Ingredient();
-        protein.setName("Pepporoni");
-        ingredientRepository.save(protein);
+        Ingredient ing2 = new Ingredient();
+        ing2.setName("Neapolitan");
+        ingredientRepository.save(ing2);
 
-        Ingredient dough = new Ingredient();
-        dough.setName("Gluten-Free");
-        ingredientRepository.save(dough);
+//        SAUCE
 
-        //adding to calculate price
+        Ingredient ing3 = new Ingredient();
+        ing3.setName(" Classic Tomato");
+        ingredientRepository.save(ing3);
 
-        Ingredient misc = new Ingredient();
-        misc.setName("misc");
-        ingredientRepository.save(misc);
+        Ingredient ing4 = new Ingredient();
+        ing4.setName("White Sauce");
+        ingredientRepository.save(ing4);
 
-        Ingredient misc2 = new Ingredient();
-        misc.setName("misc2");
-        ingredientRepository.save(misc2);
+//        PROTEIN
 
+        Ingredient ing5 = new Ingredient();
+        ing5.setName("Chicken Dices");
+        ingredientRepository.save(ing5);
 
-        Order order1 = new Order();
+        Ingredient ing6 = new Ingredient();
+        ing6.setName("Pepperoni");
+        ingredientRepository.save(ing6);
 
-        Pizza pizza1 = new Pizza();
-        pizza1.addIngredient(cheese);
-        pizza1.addIngredient(vegetable);
-        pizza1.addIngredient(dough);
-        pizza1.addIngredient(protein);
-        pizza1.addIngredient(misc);
-        pizza1.addIngredient(misc2);
+//        VEGETABLE
 
-        order1.setUser(user1);
-        pizza1.setOrder(order1);  //replaced with order1.addPizza
-        pizza1.setPrice(pizza1.calculatePrice());
-//        pizzaRepository.save(pizza1);
-        order1.addPizza(pizza1);
+        Ingredient ing7 = new Ingredient();
+        ing7.setName("Bell pepper");
+        ingredientRepository.save(ing7);
 
-        Pizza pizza2 = new Pizza();
-        pizza2.addIngredient(dough);
-        pizza2.addIngredient(vegetable);
-        pizza2.addIngredient(protein);
-        pizza2.setOrder(order1); // replaced with order1.addPizza
-//        pizzaRepository.save(pizza2);
-        pizza2.setPrice(pizza2.calculatePrice());
-        order1.addPizza(pizza2);
+        Ingredient ing8 = new Ingredient();
+        ing8.setName("Mushroom");
+        ingredientRepository.save(ing8);
 
-        order1.setTotal(order1.calculateTotal());
-        orderRepository.save(order1);
-        Order order2 = new Order();
-        order2.setUser(user1);
-        orderRepository.save(order2);
+//        ADDITIONAL TOPPINGS
 
-        System.out.println("Total for order 1: " + order1.getTotal());
+        Ingredient ing9 = new Ingredient();
+        ing9.setName("Pineapple");
+        ingredientRepository.save(ing9);
 
-
-//        int orderNum = 0;
-//        for (Order order : user1.getOrders()){
-//            System.out.println("Order#"+orderNum +": " + order.getTotal());
-//        }
+        Ingredient ing10 = new Ingredient();
+        ing10.setName("Black Olives");
+        ingredientRepository.save(ing10);
 
 
     }
