@@ -1,0 +1,30 @@
+body
+{
+    margine: 0;
+    padding: 0;
+    background: firebrick;
+}
+.box
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 1000px;
+    padding: 20px;
+    box-sizing: border-box;
+    background: burlywood;
+    border-radius: 4px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    display: flex;
+}
+.imgBx
+{
+    width: 400px;
+    height: 400px;
+
+}
+.content
+{
+    padding-left: 20px
+}

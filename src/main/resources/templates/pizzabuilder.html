@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>$Title$</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../static/style.css" />
+</head>
+<body>
+<div class="box">
+    <div class="imgBx">
+        <img src="../static/images/crust.jpg" th:src="@{/static/images/crust.jpg}" class="card-img" id="crust" alt="pizza crust">
+
+    </div>
+    <div class="content">
+
+        <h2> Build Your Own Pizza</h2>
+        </br>
+        <h4>Pizza Dough Selection</h4>
+        <form action="">
+            <input type="radio" onclick="document.getElementById('crust').src" name="dough"  value="newyork"> New York style dough
+
+            <input type="radio" name="dough"  value="neopolitan"> Neapolitan style dough
+            <br>
+        </form>
+        <h4>Sauce Selection</h4>
+        <form action="">
+            <input type="radio" onclick="document.getElementById('crust').src='../static/images/tomatosauce.jpg'"
+                   name="sauce" value="white"> Classic Tomato Sauce
+
+            <input type="radio" onclick="document.getElementById('crust').src='../static/images/whitesauce.jpg'"
+                   name="sauce" value="tomato"> White pizza sauce
+            <br>
+            <h4>Cheese Selection:</h4>
+        </form>
+        <form action="">
+            <input type="radio" onclick="document.getElementById('crust').src='../static/images/mozarellapng.png'"
+                   name="sauce" value="white"> Mozarella Cheese
+
+            <input type="radio" onclick="document.getElementById('crust').src='../static/images/vegancheesepng.png'"
+                   name="sauce" value="tomato"> Vegan Cheese
+            <br>
+        </form>
+        <h4>Protein Selection:</h4>
+        </form>
+        <form action="">
+            <input type="radio" onclick="document.getElementById('crust').src='../static/images/chicken.jpg'"
+                   name="sauce" value="white"> Diced Chicken
+
+            <input type="radio" onclick="document.getElementById('crust').src='../static/images/pepperonipng.png'"
+                   name="sauce" value="tomato"> Pepperoni
+            <br>
+        </form>
+        <h4>Vagetable Selection:</h4>
+        <form action="">
+            <input type="radio" onclick="document.getElementById('crust').src='../static/images/bellpeppers.jpg'"
+                   name="sauce" value="white"> Bell Peppers
+
+            <input type="radio" onclick="document.getElementById('crust').src='../static/images/mashroom.jpg'"
+                   name="sauce" value="tomato"> Mashrooms
+            <br>
+        </form>
+        </form>
+        <h4>Vagetable Selection:</h4>
+        <form action="">
+            <input type="radio" onclick="document.getElementById('crust').src='../static/images/blackolives.jpg'"
+                   name="sauce" value="white"> Black Olives
+
+            <input type="radio" onclick="document.getElementById('crust').src='../static/images/pineapplepng.png'"
+                   name="sauce" value="tomato"> Pineapple
+            <br>
+        </form>
+    </div>
+</div>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+</body>
+</html>
