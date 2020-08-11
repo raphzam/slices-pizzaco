@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Order</title>
+</head>
+<body>
+<h3>Order Form </h3>
+
+<form autocomplete="off"
+      th:action="@{processOrder}"
+      th:object="${pizza}"
+      method="post">
+
+    <input type="hidden" th:field="*{id}"/>
+
+    Select dough type:
+    <div th:each="ingredient : ${ingredients}">
+        <input type="checkbox" id="doughSelection1" name="ingredient1" th:value="${ingredient.id}"
+               th:field="*{ingredients}"><label for="doughSelection1">[[${ingredient.name}]]</label>
+    </div>
+
+    Select sauce type:
+    <div th:each="ingredient : ${ingredients}">
+        <input type="radio" id="doughSelection2" name="ingredient2" th:value="${ingredient.id}"
+               th:field="*{ingredients}"><label for="doughSelection2">[[${ingredient.name}]]</label>
+    </div>
+
+    <!--    <input type="radio" id="doughSelection2" name="Neapolitan Style" th:value="${ingredient.id}"-->
+    <!--           th:field="*{ingredients}"><label for="doughSelection2">Neapolitan Style</label>-->
+
+
+    <input type="submit" value="Order">
+</form>
+
+
+
+
+</body>
+</html>
