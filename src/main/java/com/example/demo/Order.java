@@ -4,18 +4,19 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-public class PizzaOrder {
+@Table (name = "order_table")
+public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @OneToMany (mappedBy = "pizzaOrder")
+    @OneToMany (mappedBy = "order")
     private Set<Pizza> pizzas;
 
     @ManyToOne
     private User user;
 
-    public PizzaOrder() {
+    public Order() {
     }
 
 

@@ -15,7 +15,7 @@ public class Pizza {
     private Set<Ingredient> ingredients;
 
     @ManyToOne
-    private PizzaOrder pizzaOrder;
+    private Order order;
 
     public Pizza() {
     }
@@ -43,11 +43,11 @@ public class Pizza {
         this.ingredients.add(ingredient);
     }
 
-    public PizzaOrder getOrder() {
-        return pizzaOrder;
+    public Order getOrder() {
+        return order;
     }
 
-    public void setOrder(PizzaOrder pizzaOrder) {
-        this.pizzaOrder = pizzaOrder;
+    public void setOrder(Order order) {
+        this.order = order;
     }
 }

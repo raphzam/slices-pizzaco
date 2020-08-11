@@ -15,7 +15,7 @@ public class CommandLineRunnerBean implements CommandLineRunner {
     IngredientRepository ingredientRepository;
 
     @Autowired
-    PizzaOrderRepository pizzaOrderRepository;
+    OrderRepository orderRepository;
 
     @Autowired
     UserRepository userRepository;
@@ -42,27 +42,27 @@ public class CommandLineRunnerBean implements CommandLineRunner {
         ingredientRepository.save(dough);
 
 
-        PizzaOrder pizzaOrder1 = new PizzaOrder();
+        Order order1 = new Order();
 
         Pizza pizza1 = new Pizza();
         pizza1.addIngredient(cheese);
         pizza1.addIngredient(vegetable);
 
-        pizzaOrder1.setUser(user1);
-        pizzaOrderRepository.save(pizzaOrder1);
-        pizza1.setOrder(pizzaOrder1);
+        order1.setUser(user1);
+        orderRepository.save(order1);
+        pizza1.setOrder(order1);
         pizzaRepository.save(pizza1);
 
         Pizza pizza2 = new Pizza();
         pizza2.addIngredient(dough);
         pizza2.addIngredient(vegetable);
         pizza2.addIngredient(protein);
-        pizza2.setOrder(pizzaOrder1);
+        pizza2.setOrder(order1);
         pizzaRepository.save(pizza2);
 
-        PizzaOrder pizzaOrder2 = new PizzaOrder();
-        pizzaOrder2.setUser(user1);
-        pizzaOrderRepository.save(pizzaOrder2);
+        Order order2 = new Order();
+        order2.setUser(user1);
+        orderRepository.save(order2);
 
     }
 

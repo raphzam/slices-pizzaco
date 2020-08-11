@@ -20,8 +20,8 @@ public class User {
     @Column(name = "enabled")
     private boolean enabled;
 
-//    @OneToMany(mappedBy = "user")
-//    private Set<Pizza> pizza;
+    @OneToMany(mappedBy = "user")
+    private Set<Order> orders;
 
     public User(String username, String password, boolean enabled) {
         this.username = username;
