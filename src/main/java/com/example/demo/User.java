@@ -2,6 +2,7 @@ package com.example.demo;
 
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -60,6 +61,21 @@ public class User {
 
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
+    }
+
+    public Set<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Set<Order> orders) {
+        this.orders = orders;
+    }
+
+    public void addOrder(Order order){
+        if (this.orders==null){
+            this.orders= new HashSet<Order>();
+        }
+        this.orders.add(order);
     }
 
 }

@@ -1,22 +1,28 @@
 package com.example.demo;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table (name = "order_table")
+@Table(name = "order_table")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @OneToMany (mappedBy = "order")
+    @OneToMany(mappedBy = "order",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER)
     private Set<Pizza> pizzas;
 
     @ManyToOne
     private User user;
 
+    private double total;
+
     public Order() {
+        this.pizzas = null;
     }
 
 
@@ -43,4 +49,29 @@ public class Order {
     public void setUser(User user) {
         this.user = user;
     }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void addPizza(Pizza pizza) {
+        if (this.pizzas == null) {
+            this.pizzas = new HashSet<Pizza>();
+        }
+        this.pizzas.add(pizza);
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+
+    public double calculateTotal() {
+        double orderTotal = 0;
+        for (Pizza pie : pizzas) {
+            orderTotal += pie.getPrice();
+        }
+        return orderTotal;
+    }
+
+
 }
