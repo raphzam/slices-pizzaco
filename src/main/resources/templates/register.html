@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+
+<h4>New Employee Registration</h4>
+<form autocomplete="off"
+      th:action="@{/processRegister}"
+      th:object="${user}" method="post">
+
+    <input type="hidden" th:field="*{id}"/>
+
+    First Name:
+    <input type="text" id="firstName" placeholder="First Name"
+           th:field="*{firstName}"/>
+
+    <br>
+
+    Last Name:
+    <input type="text" id="lastName" placeholder="Last Name"
+           th:field="*{lastName}"/>
+    <br>
+
+    Email:
+    <input type="email" id="email" placeholder="email@domain.com"
+           th:field="*{email}"/>
+    <br>
+
+    Phone Number:
+    <input type="text" id="phoneNumber" placeholder="Phone Number"
+           th:field="*{phoneNumber}"/>
+    <br>
+
+    Create Username:
+    <input type="text" id="username" placeholder="Username"
+           th:field="*{username}"/>
+    <br>
+
+    Create a Password
+    <input type="text" id="password" placeholder="Password"
+           th:field="*{password}">
+    <br>
+
+    <button type="submit">Register</button>
+</form>
+
+</body>
+</html>

@@ -23,7 +23,10 @@ public class CommandLineRunnerBean implements CommandLineRunner {
 
     public void run(String... args) {
 
-        User user1 = new User("userPizza", "password", true);
+        User user1 = new User();
+        user1.setUsername("user");
+        user1.setPassword("password");
+        user1.setEnabled(true);;
         userRepository.save(user1);
 
         //DOUGH
@@ -75,7 +78,6 @@ public class CommandLineRunnerBean implements CommandLineRunner {
         Ingredient ing10 = new Ingredient();
         ing10.setName("Black Olives");
         ingredientRepository.save(ing10);
-
 
     }
 
