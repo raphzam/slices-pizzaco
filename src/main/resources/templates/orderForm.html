@@ -8,11 +8,13 @@
 <h3>Order Form </h3>
 
 <form autocomplete="off"
-      th:action="@{processOrder}"
+      th:action="@{/processOrder}"
       th:object="${pizza}"
       method="post">
 
     <input type="hidden" th:field="*{id}"/>
+
+        <input type="hidden" th:field="*{order}">
 
     Select dough type:
     <div th:each="dough : ${doughs}">
@@ -49,8 +51,6 @@
 
     <input type="submit" value="Order">
 </form>
-
-
 
 
 </body>
