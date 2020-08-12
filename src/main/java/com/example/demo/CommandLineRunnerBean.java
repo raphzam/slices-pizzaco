@@ -33,16 +33,19 @@ public class CommandLineRunnerBean implements CommandLineRunner {
 
         Ingredient ing1 = new Ingredient();
         ing1.setName("NY Style");
+        ing1.setPicUrl("https://res.cloudinary.com/cloudim/image/upload/v1597240832/crust_yedtop.jpg");
         ingredientRepository.save(ing1);
 
         Ingredient ing2 = new Ingredient();
         ing2.setName("Neapolitan");
+        ing2.setPicUrl("https://res.cloudinary.com/cloudim/image/upload/v1597240832/crust_yedtop.jpg");
         ingredientRepository.save(ing2);
 
 //        SAUCE
 
         Ingredient ing3 = new Ingredient();
         ing3.setName(" Classic Tomato");
+        ing3.setPicUrl("");
         ingredientRepository.save(ing3);
 
         Ingredient ing4 = new Ingredient();

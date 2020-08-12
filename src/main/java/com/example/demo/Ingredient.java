@@ -15,6 +15,8 @@ public class Ingredient {
     @ManyToMany
     private Set<Pizza> pizzas;
 
+    private String picUrl;
+
     public Ingredient() {
     }
 
@@ -32,5 +34,13 @@ public class Ingredient {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPicUrl() {
+        return picUrl;
+    }
+
+    public void setPicUrl(String picUrl) {
+        this.picUrl = picUrl;
     }
 }

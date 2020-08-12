@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<h4>New Employee Registration</h4>
+<h4>New Registration</h4>
 <form autocomplete="off"
       th:action="@{/processRegister}"
       th:object="${user}" method="post">
@@ -40,7 +40,7 @@
     <br>
 
     Create a Password
-    <input type="text" id="password" placeholder="Password"
+    <input type="password" id="password" placeholder="Password"
            th:field="*{password}">
     <br>
 
