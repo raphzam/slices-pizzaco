@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table (name = "ingredient_table")
+@Table(name = "ingredient_table")
 public class Ingredient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,7 +15,17 @@ public class Ingredient {
     @ManyToMany
     private Set<Pizza> pizzas;
 
+
+    private String picUrl;
+
+    private boolean inStock;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "type_id")
+    private Type type;
+
     public Ingredient() {
+        this.inStock = true;
     }
 
     public long getId() {
@@ -32,5 +42,37 @@ public class Ingredient {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPicUrl() {
+        return picUrl;
+    }
+
+    public void setPicUrl(String picUrl) {
+        this.picUrl = picUrl;
+    }
+
+    public Set<Pizza> getPizzas() {
+        return pizzas;
+    }
+
+    public void setPizzas(Set<Pizza> pizzas) {
+        this.pizzas = pizzas;
+    }
+
+    public Type getType() {
+        return type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
+    }
+
+    public boolean isInStock() {
+        return inStock;
+    }
+
+    public void setInStock(boolean inStock) {
+        this.inStock = inStock;
     }
 }
