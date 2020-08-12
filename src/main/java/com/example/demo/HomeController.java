@@ -15,6 +15,9 @@ public class HomeController {
     IngredientRepository ingredientRepository;
 
     @Autowired
+    TypeRepository typeRepository;
+
+    @Autowired
     PizzaRepository pizzaRepository;
 
     @Autowired
@@ -34,11 +37,11 @@ public class HomeController {
     @RequestMapping("/order")
     public String orderPizza(Model model) {
         model.addAttribute("pizza", new Pizza());
-//        model.addAttribute("ingredients", ingredientRepository.findAll());
-//        model.addAttribute("dough", ingredientRepository.findByIdBetween(1, 2));
-        model.addAttribute("doughs", ingredientRepository.findByIdBetween(1,2));
-        model.addAttribute("sauces", ingredientRepository.findByIdBetween(3,4));
-        model.addAttribute("toppings", ingredientRepository.findByIdBetween(5,10));
+        model.addAttribute("doughs", ingredientRepository.findAllByType(typeRepository.findByName("dough")));
+        model.addAttribute("proteins", ingredientRepository.findAllByType(typeRepository.findByName("protein")));
+        model.addAttribute("veggies", ingredientRepository.findAllByType(typeRepository.findByName("veggie")));
+        model.addAttribute("sauces", ingredientRepository.findAllByType(typeRepository.findByName("sauce")));
+        model.addAttribute("toppings", ingredientRepository.findAllByType(typeRepository.findByName("topping")));
         //ingredients
         return "orderForm";
     }

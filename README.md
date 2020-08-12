@@ -12,7 +12,13 @@ Public
 
 User 
         
-        Create New Order (can be created by public user)
+        Create New Order (can be created by public user) [user id ==null, 
+        loop through orders where id = null, id = currentUser];
+        
+        boolean Complete on order class; complete = false;
+        when they're done adding pizzas, complete = true;
+            send text
+            generate receipt
 	    Create New Pizza from Scratch
 		display picture of pizza with current toppings
 			calculate pizza price (subtotal)
@@ -24,18 +30,43 @@ User
 
     Checkout (submit order)
 	create account if not logged in
-	generate itemized receipt
+	generate itemized receipt [order > pizza > print all the ingredients]
 		display date and time submitted
 		display cost of additional toppings
 	send email or text upon submission
 	save order to customer’s history
 
 
-Admin
+Admin (3-4 pages)
+	
+	SEARCH BOX IN ADMIN PAGE    
+        search customer by name [customer repository query]
+            [query usertable for name]
+                results page
+                    customer name
+                    email
+                    order history
+                        all the pizzas order
+            
+	generate list of customers [print all in user repository, role USER]
+	    nav link to get to customer table
 	    
-    search customer by name
-	generate list of customers
-	calculate top 3 pizza toppings
+	calculate top 3 pizza toppings 
+	    (dashboard view)
+	    link to 
+	        [pizza_ingredient_table, calculate top 3 ingredients]
+	        
     calculate total sales
-    add/remove ingredients from inventory
+        (dashboard view)
+        link to
+            [add up all totals from order table]
+        
+    add/remove ingredients from inventory [add ingredient form, name, selection option for type, media upload]
+        link to inventory management?
+        
+        
+        
+        
+        
+        
     add pre made pizzas to menu (optional)

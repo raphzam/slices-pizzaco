@@ -21,8 +21,10 @@ public class Order {
 
     private double total;
 
+    private boolean complete;
+
     public Order() {
-        this.pizzas = null;
+        this.complete=false;
     }
 
 
@@ -73,5 +75,11 @@ public class Order {
         return orderTotal;
     }
 
+    public boolean isComplete() {
+        return complete;
+    }
 
+    public void setComplete(boolean complete) {
+        this.complete = complete;
+    }
 }
