@@ -15,9 +15,17 @@ public class Ingredient {
     @ManyToMany
     private Set<Pizza> pizzas;
 
+
     private String picUrl;
 
+    private boolean inStock;
+
+    @ManyToOne (fetch = FetchType.EAGER)
+    @JoinColumn(name = "type_id")
+    private Type type;
+
     public Ingredient() {
+        this.inStock=true;
     }
 
     public long getId() {
@@ -36,11 +44,36 @@ public class Ingredient {
         this.name = name;
     }
 
+<<<<<<< HEAD
     public String getPicUrl() {
         return picUrl;
     }
 
     public void setPicUrl(String picUrl) {
         this.picUrl = picUrl;
+=======
+    public Set<Pizza> getPizzas() {
+        return pizzas;
+    }
+
+    public void setPizzas(Set<Pizza> pizzas) {
+        this.pizzas = pizzas;
+    }
+
+    public Type getType() {
+        return type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
+    }
+
+    public boolean isInStock() {
+        return inStock;
+    }
+
+    public void setInStock(boolean inStock) {
+        this.inStock = inStock;
+>>>>>>> 6bb8957c7c26e9d261c5b677fad5e24b1ac975d7
     }
 }

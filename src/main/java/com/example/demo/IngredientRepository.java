@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 public interface IngredientRepository extends CrudRepository<Ingredient, Long> {
 
     Iterable<Ingredient> findByIdBetween(long start, long end);
+
+    Iterable<Ingredient> findAllByType(Type type);
 }

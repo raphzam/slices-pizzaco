@@ -17,7 +17,7 @@
     Select dough type:
     <div th:each="dough : ${doughs}">
         <input type="radio" id="doughSelection1" th:value="${dough.id}"
-               name="dough"><label for="doughSelection1">[[${dough.name}]]</label>
+               name="dough" checked><label for="doughSelection1">[[${dough.name}]]</label>
     </div>
 
     Select sauce type:
@@ -26,15 +26,23 @@
                name="sauce"><label for="sauce">[[${sauce.name}]]</label>
     </div>
 
+    Check Protein type:
+    <div th:each="protein : ${proteins}">
+        <input type="checkbox" id="protein" th:value="${protein.id}"
+               th:field="*{ingredients}"><label for="protein">[[${protein.name}]]</label>
+    </div>
+
+    Check Veggie type:
+    <div th:each="veggie : ${veggies}">
+        <input type="checkbox" th:id="${veggie.id}" th:value="${veggie.id}"
+               th:field="*{ingredients}"><label th:for="${veggie.id}">[[${veggie.name}]]</label>
+    </div>
 
     Check toppings type:
     <div th:each="topping : ${toppings}">
         <input type="checkbox" id="topping" th:value="${topping.id}"
                th:field="*{ingredients}"><label for="topping">[[${topping.name}]]</label>
     </div>
-
-    Select toppings
-
     <!--    <input type="radio" id="doughSelection2" name="Neapolitan Style" th:value="${ingredient.id}"-->
     <!--           th:field="*{ingredients}"><label for="doughSelection2">Neapolitan Style</label>-->
 
