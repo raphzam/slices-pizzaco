@@ -17,6 +17,7 @@ public class Order {
     private Set<Pizza> pizzas;
 
     @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
 
     private double total;

@@ -1,11 +1,20 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
 </head>
 <body>
 <h4>Homepage Placeholder</h4>
+
+
+<div sec:authorize="isAuthenticated()">
+    Welcome <span sec:authentication="name"></span>!
+</div>
+<div sec:authorize="!isAuthenticated()">
+    Welcome guest!
+</div>
 
 <br/>
 <a th:href="@{/login}">Login</a>
@@ -14,5 +23,9 @@
 <br/>
 <!--Link to place order-->
 <a th:href="@{/order}">Click to place Order</a>
+<!--Link to cart-->
+<br/>
+<a th:href="@{/cart}">My Cart</a>
+
 </body>
 </html>
