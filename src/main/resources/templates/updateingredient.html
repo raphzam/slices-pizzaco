@@ -1,0 +1,23 @@
+<link rel="stylesheet" type="text/css" href="../static/style.css" />
+</head>
+<body>
+<h2 class="h2">Update Ingredient</h2>
+<div class="box">
+
+    <form class="card-form">
+        <div class="form-row">
+            <div class="col-md-6 mb-3">
+                <label for="ingredient">Ingredient name</label>
+                <input type="text" class="form-control" id="ingredient" value="" required>
+        <label >Choose a category</label>
+        <select th:field="*{category.id}">
+            <option th:each="category : ${categories}"
+                    th:value="${category.id}"
+                    th:text="${category.title}"></option>
+        </select>
+                <input type="file" name="file"/>
+        <button class="btn btn-primary" type="submit">Update Ingredient</button>
+</div>
+</div>
+    </form>
+</div>

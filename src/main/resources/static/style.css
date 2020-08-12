@@ -32,3 +32,19 @@ body
 {
     padding-left: 20px
 }
+.card-form{
+    text-align: center;
+}
+.h2{
+    text-align: center;
+    color: burlywood;
+    padding: 40px;
+
+}
+.h2-2{
+    color: firebrick;
+    text-align: center;
+}
+.addash{
+    text-align: center;
+}
