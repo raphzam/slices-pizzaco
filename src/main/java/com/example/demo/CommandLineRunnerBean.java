@@ -24,6 +24,9 @@ public class CommandLineRunnerBean implements CommandLineRunner {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    RoleRepository roleRepository;
+
     public void run(String... args) {
 
         User user1 = new User();
@@ -31,6 +34,10 @@ public class CommandLineRunnerBean implements CommandLineRunner {
         user1.setPassword("password");
         user1.setEnabled(true);;
         userRepository.save(user1);
+
+        Role role = new Role("user", "ROLE_USER");
+        roleRepository.save(role);
+
 
         //TYPES
         Type dough = new Type("dough");

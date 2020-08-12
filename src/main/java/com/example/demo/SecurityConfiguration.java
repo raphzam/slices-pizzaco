@@ -18,9 +18,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.authorizeRequests()
-                .anyRequest().permitAll()
-//                .antMatchers("/h2-console/**").permitAll()
+//                .anyRequest().permitAll()
+               .antMatchers("/h2-console/**", "/**").permitAll()
 //                .antMatchers("/admin").hasRole("ADMIN")
+//                .antMatchers("/processOrder").hasRole("USER")
 //                .antMatchers("/**").hasAnyRole("ADMIN", "USER")
                 .and()
                 .formLogin()
@@ -34,7 +35,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public PasswordEncoder passwordEncoder(){
+    public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 

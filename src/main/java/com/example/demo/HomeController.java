@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.security.Principal;
+
 @Controller
 public class HomeController {
 
@@ -47,7 +49,7 @@ public class HomeController {
     }
 
     @PostMapping("/processOrder")
-    public String processPizzaOrder(@ModelAttribute("pizza") Pizza pizza, Model model, @RequestParam("dough") long id) {
+    public String processPizzaOrder(@ModelAttribute("pizza") Pizza pizza, Model model, @RequestParam("dough") long id, Principal principal) {
         Ingredient ing = ingredientRepository.findById(id).get();
         pizza.addIngredient(ing);
 
@@ -57,6 +59,12 @@ public class HomeController {
         pizza.setPrice(pizza.calculatePrice());
         pizza.setOrder(order);
         order.setTotal(order.calculateTotal());
+
+        if (principal!=null){
+            User currentUser = userRepository.findByUsername(principal.getName());
+            order.setUser(currentUser);
+        }
+
         orderRepository.save(order);
         return "redirect:/";
     }
