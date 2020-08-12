@@ -8,39 +8,37 @@
     <link rel="stylesheet" type="text/css" href="../static/style.css" />
 </head>
 <body>
-<h2 class="h2">Total Sales</h2>
+<h2 class="h2">All Ingredients</h2>
 <div class="box">
+<div>
 
+
+</div></br>
     <table class="table">
         <thead class="thead-light">
         <tr>
-            <th scope="col">Order ID</th>
-            <th scope="col">Total</th>
-            <th scope="col">Total Sales</th>
+            <th scope="col">Ingredient ID</th>
+            <th scope="col">Category</th>
+            <th scope="col">Name</th>
+            <th scope="col">Action</th>
         </tr>
         </thead>
         <tbody>
         <tr>
             <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
+            <td>Bell Pepper</td>
+            <td>Vegetable</td>
 
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-
+        <td>
+            <button><a th:href="@{//{id}(id=${.id})}">Add</a></button>
+            <button><a th:href="@{/update/{id}(id=${.id})}">Update</a></button>
+            <button><a th:href="@{/delete/{id}(id=${.id})}">Delete</a></button>
+            </td>
         </tr>
         </tbody>
     </table>
-</div>
+    </div>
+
 
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
