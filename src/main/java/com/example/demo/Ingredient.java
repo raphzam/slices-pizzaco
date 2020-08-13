@@ -20,6 +20,8 @@ public class Ingredient {
 
     private boolean inStock;
 
+    private int counter = 0;
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "type_id")
     private Type type;
