@@ -6,16 +6,17 @@
     <div th:replace="base :: headerfg"></div>
 </head>
 <body>
+<div th:replace="base :: navlinksfg"></div>
 <h2 class="h2">Add/Update Ingredient</h2>
-<div class="box">
 
-    <form class="card-form" autocomplete="off"
+<div class="boxupdate">
+    <form class="card-form2" autocomplete="off"
           th:action="@{/admin/processAddIngredient}"
           th:object="${ingredient}"
           method="post"
           enctype="multipart/form-data">
         <div class="form-row">
-            <div class="col-md-6 mb-3">
+            <div class="col-md-9 mb-6">
 
                 <input type="hidden" th:field="*{id}"/>
 
@@ -33,14 +34,18 @@
                 </select>
                 <br/>
                 <br/>
-
-                <label>Upload Image:</label>
+                <p class="message" th:if="${message}">[[${message}]]</p>
+                <label>Upload Image *(Required):</label>
                 <input type="file" name="file"/>
-
+                <br/>
+                <h6>*For best results, please upload a small-sized image.</h6>
                 <br/>
                 <br/>
-                <button class="btn btn-primary" type="submit">Enter Ingredient</button>
+                <button class="btn btn-primary" type="submit">Enter</button>
             </div>
         </div>
     </form>
 </div>
+<div th:replace="base :: footerfg"></div>
+</body>
+</html>
