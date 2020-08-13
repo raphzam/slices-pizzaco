@@ -14,18 +14,24 @@
 
     <input type="hidden" th:field="*{id}"/>
 
-        <input type="hidden" th:field="*{order}">
+    <input type="hidden" th:field="*{order}">
 
     Select dough type:
     <div th:each="dough : ${doughs}">
         <input type="checkbox" id="doughSelection1" th:value="${dough.id}" th:id="${dough.id}"
-               th:field="*{ingredients}" name="dough"> <label for="doughSelection1">[[${dough.name}]]</label>
+               th:field="*{ingredients}" name="dough" class="dough"> <label for="doughSelection1">[[${dough.name}]]</label>
     </div>
 
     Select sauce type:
     <div th:each="sauce : ${sauces}">
         <input type="checkbox" id="sauce" th:value="${sauce.id}" th:id="${sauce.id}"
-               th:field="*{ingredients}" name="sauce"><label for="sauce">[[${sauce.name}]]</label>
+               th:field="*{ingredients}" name="sauce" class="sauce"><label for="sauce">[[${sauce.name}]]</label>
+    </div>
+
+    Select cheese type:
+    <div th:each="cheese : ${cheeses}">
+        <input type="checkbox" id="cheeseSelection" th:value="${cheese.id}" th:id="${cheese.id}"
+               th:field="*{ingredients}" name="cheese"> <label for="doughSelection1">[[${cheese.name}]]</label>
     </div>
 
     Check Protein type:
@@ -54,4 +60,5 @@
 
 
 </body>
+
 </html>

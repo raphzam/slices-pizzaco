@@ -10,5 +10,7 @@ public interface UserRepository extends CrudRepository<User,Long> {
 
     User findByUsername(String username);
 
+    User findByFirstNameContainingOrLastNameContaining(String firstName, String lastname);
+
 }
 

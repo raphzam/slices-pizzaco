@@ -41,6 +41,8 @@ public class HomeController {
         model.addAttribute("veggies", ingredientRepository.findAllByType(typeRepository.findByName("veggie")));
         model.addAttribute("sauces", ingredientRepository.findAllByType(typeRepository.findByName("sauce")));
         model.addAttribute("toppings", ingredientRepository.findAllByType(typeRepository.findByName("topping")));
+        model.addAttribute("cheeses", ingredientRepository.findAllByType(typeRepository.findByName("cheese")));
+
         //ingredients
         return "orderForm";
     }
@@ -54,6 +56,7 @@ public class HomeController {
         model.addAttribute("veggies", ingredientRepository.findAllByType(typeRepository.findByName("veggie")));
         model.addAttribute("sauces", ingredientRepository.findAllByType(typeRepository.findByName("sauce")));
         model.addAttribute("toppings", ingredientRepository.findAllByType(typeRepository.findByName("topping")));
+        model.addAttribute("cheeses", ingredientRepository.findAllByType(typeRepository.findByName("cheese")));
 
         return "orderForm";
     }
@@ -120,6 +123,7 @@ public class HomeController {
         model.addAttribute("veggies", ingredientRepository.findAllByType(typeRepository.findByName("veggie")));
         model.addAttribute("sauces", ingredientRepository.findAllByType(typeRepository.findByName("sauce")));
         model.addAttribute("toppings", ingredientRepository.findAllByType(typeRepository.findByName("topping")));
+        model.addAttribute("cheeses", ingredientRepository.findAllByType(typeRepository.findByName("cheese")));
 
         return "additionalpizza";
     }
