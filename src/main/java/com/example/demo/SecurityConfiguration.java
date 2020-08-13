@@ -19,7 +19,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.authorizeRequests()
 //                .anyRequest().permitAll()
-               .antMatchers("/h2-console/**", "/**","/styles/**").permitAll()
+               .antMatchers("/h2-console/**", "/**","/styles/**","/static/**","/images/**").permitAll()
 //                .antMatchers("/admin").hasRole("ADMIN")
 //                .antMatchers("/processOrder").hasRole("USER")
 //                .antMatchers("/**").hasAnyRole("ADMIN", "USER")

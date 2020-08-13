@@ -1,0 +1,113 @@
+body
+{
+    margin: 0;
+    padding: 0;
+    background: firebrick;
+}
+.box
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 1000px;
+    padding: 20px;
+    box-sizing: border-box;
+    background: burlywood;
+    border-radius: 4px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    display: flex;
+}
+.card-img {
+    width: 400px;
+    height: 400px;
+}
+.box.imgBx
+{
+    width: 400px;
+    height: 400px;
+
+}
+.content
+{
+    padding-left: 20px
+}
+.card-form{
+    text-align: center;
+}
+.h2{
+    text-align: center;
+    color: burlywood;
+    padding: 40px;
+
+}
+.h2-2{
+    color: firebrick;
+    text-align: center;
+}
+.addash{
+    text-align: center;
+}
+
+.btn{
+    margin-bottom: 5px !important;
+}
+
+a{
+    color: black !important;
+}
+
+.box2
+{
+    min-height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+    padding: 20px;
+    box-sizing: border-box;
+    background: burlywood;
+    border-radius: 4px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    display: flex;
+}
+
+.total {
+    text-align: center;
+}
+
+.box3
+{
+    min-height: 300px;
+    margin: auto;
+    width: 500px;
+    padding: 20px;
+    box-sizing: border-box;
+    background: burlywood;
+    border-radius: 4px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+}
+
+.bg {
+
+    background-image: url("/static/images/backgroundpizza.jpg");
+    opacity: 5;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.boxupdate{
+    min-height: 300px;
+    margin: auto;
+    width: 600px;
+    padding: 20px;
+    box-sizing: border-box;
+    background: burlywood;
+    border-radius: 4px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+}
+
+.message{
+    color: red;
+}
