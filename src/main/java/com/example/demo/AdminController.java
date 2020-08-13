@@ -89,6 +89,7 @@ public class AdminController {
     public String updateIngredient(@PathVariable("id") Long id, Model model){
         model.addAttribute("ingredient",ingredientRepository.findById(id).get());
         model.addAttribute("type", typeRepository.findAll());
+        model.addAttribute("message", "New image required for update");
         return "updateingredient";
     }
 
@@ -96,6 +97,11 @@ public class AdminController {
     public String deleteIngredient(@PathVariable("id") long id){
         ingredientRepository.deleteById(id);
         return "redirect:/admin/ingredients";
+    }
+
+    @RequestMapping("/admin/searchbyname")
+    public String searchByFirstName(Model model){ ;
+        return "searchbyname";
     }
 
 }
