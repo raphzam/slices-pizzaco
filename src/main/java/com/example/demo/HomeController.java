@@ -45,12 +45,6 @@ public class HomeController {
         return "orderForm";
     }
 
-    @RequestMapping("/addToOrder/{id}")
-    public String addToOrder(@PathVariable("id") long orderID, Model model) {
-        model.addAttribute("currentOrder", orderRepository.findById(orderID).get());
-        return "orderForm";
-    }
-
     @RequestMapping("/updatepizza/{id}")
     public String updatePizza(@PathVariable("id") long id, Model model) {
         model.addAttribute("pizza", pizzaRepository.findById(id).get());
@@ -82,16 +76,21 @@ public class HomeController {
             }
             orderRepository.save(order);
         } else {
-
+//            Order order = pizza.getOrder();
+            pizza.setPrice(pizza.calculatePrice());
             pizzaRepository.save(pizza);
+//            order.setTotal(order.calculateTotal());
+//            orderRepository.save(order);
         }
-
-
         return "redirect:/";
     }
 
     @GetMapping("/cart")
     public String loadUserCart(Model model, Principal principal) {
+        for (Order order : orderRepository.findAll()){
+            order.setTotal(order.calculateTotal());
+            orderRepository.save(order);
+        }
 
         if (principal != null) {
             User currentUser = userRepository.findByUsername(principal.getName());
@@ -107,5 +106,45 @@ public class HomeController {
         return "cart";
     }
 
+    @RequestMapping("/addToOrder/{id}")
+    public String addToOrder(@PathVariable("id") long orderID, Model model) {
+//        model.addAttribute("order", orderRepository.findById(orderID).get());
 
-}
+        Pizza pizza = new Pizza();
+        pizza.setOrder(orderRepository.findById(orderID).get());
+
+        model.addAttribute("pizza", pizza);
+
+        model.addAttribute("doughs", ingredientRepository.findAllByType(typeRepository.findByName("dough")));
+        model.addAttribute("proteins", ingredientRepository.findAllByType(typeRepository.findByName("protein")));
+        model.addAttribute("veggies", ingredientRepository.findAllByType(typeRepository.findByName("veggie")));
+        model.addAttribute("sauces", ingredientRepository.findAllByType(typeRepository.findByName("sauce")));
+        model.addAttribute("toppings", ingredientRepository.findAllByType(typeRepository.findByName("topping")));
+
+        return "additionalpizza";
+    }
+
+    @RequestMapping("/processAdditional")
+    public String processAdditionalPizza(@ModelAttribute Pizza pizza, Model model, Principal principal) {
+        Order order = pizza.getOrder();
+
+        order.addPizza(pizza);
+        pizza.setPrice(pizza.calculatePrice());
+        pizza.setOrder(order);
+//        order.setTotal(order.calculateTotal());
+        orderRepository.save(order);
+
+        return "redirect:/";
+    }
+
+//    @RequestMapping("/checkout")
+//    public String userCheckout(Principal principal){
+//        String username = principal.getName();
+//        User currentUser = userRepository.findByUsername(username);
+//
+//        for (Order order : currentUser)
+//
+//        return "redirect:/cart";
+    }
+
+

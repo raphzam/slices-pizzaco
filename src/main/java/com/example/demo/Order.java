@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import javax.persistence.*;
+import java.time.LocalTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -23,6 +24,8 @@ public class Order {
     private double total;
 
     private boolean complete;
+
+    private LocalTime localTime;
 
     public Order() {
         this.complete=false;
