@@ -111,3 +111,7 @@ a{
 .message{
     color: red;
 }
+
+h3{
+    padding-bottom: 20px;
+}
