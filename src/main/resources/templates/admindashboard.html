@@ -2,39 +2,28 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../static/style.css" />
+    <title>Admin Dashboard</title>
+    <div th:replace="base :: headerfg"></div>
 </head>
 <body>
+<div th:replace="base :: navlinksfg"></div>
+
 <div class="box">
     <div class="imgBx">
-        <img class="card-img" src="../static/images/pizza1.jpg."   alt="pizza ">
-
+        <img class="card-img" th:src="@{/images/pizza1.jpg}" alt="pizza">
     </div>
     <div class="content">
-
-        <h2 class="h2-2"> Admin Dashboard</h2>
+        <h2 class="h2-2">Admin Dashboard</h2>
         <div class="addash">
-        <button type="button" class="btn btn-warning" style="width: 40%" >Search Customer By name</button>
-        <button type="button" class="btn btn-warning" style="width: 40%" >Total Sales</button>
-        <button type="button" class="btn btn-warning" style="width: 40%">Top Three Pizza Toppings</button>
-        <button type="button" class="btn btn-warning" style="width: 40%">Update Pizza Toppings</button></br>
-    </div>
-
+            <button type="button" class="btn btn-warning" style="width: 40%"><a th:href="@{/admin/customers}">View & Search Customers</a></button>
+            <button type="button" class="btn btn-warning" style="width: 40%"><a th:href="@{/admin/totalsales}">Total Sales</a></button>
+            <button type="button" class="btn btn-warning" style="width: 40%"><a th:href="@{/admin/topthree}">Top Three Pizza Toppings</a></button>
+            <button type="button" class="btn btn-warning" style="width: 40%"><a th:href="@{/admin/ingredients}">Update Pizza Toppings</a></button>
+            <button type="button" class="btn btn-warning" style="width: 40%"><a th:href="@{/admin/addingredient}">Add New Topping</a></button>
+            </br>
+        </div>
     </div>
 </div>
-
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-        crossorigin="anonymous"></script>
+<div th:replace="base :: footerfg"></div>
 </body>
 </html>

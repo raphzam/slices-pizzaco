@@ -124,7 +124,7 @@ public class CommandLineRunnerBean implements CommandLineRunner {
 
         Ingredient ing10 = new Ingredient();
         ing10.setName("Black Olives");
-        ing1.setPicUrl("https://res.cloudinary.com/cloudim/image/upload/v1597240842/blackolives_vbesoh.jpg");
+        ing10.setPicUrl("https://res.cloudinary.com/cloudim/image/upload/v1597240842/blackolives_vbesoh.jpg");
         ing10.setType(topping);
         ingredientRepository.save(ing10);
 

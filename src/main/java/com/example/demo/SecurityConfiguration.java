@@ -19,7 +19,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.authorizeRequests()
 //                .anyRequest().permitAll()
-               .antMatchers("/h2-console/**", "/**").permitAll()
+               .antMatchers("/h2-console/**", "/**","/styles/**").permitAll()
 //                .antMatchers("/admin").hasRole("ADMIN")
 //                .antMatchers("/processOrder").hasRole("USER")
 //                .antMatchers("/**").hasAnyRole("ADMIN", "USER")
@@ -48,6 +48,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .dataSource(dataSource)
                 .usersByUsernameQuery("select username, password, enabled from " +
                         "user_table where username = ?")
+                .usersByUsernameQuery("select username, password, enabled from " +
+                        "admin_table where username = ?")
                 .authoritiesByUsernameQuery("select username, role from role_table where username = ?");
 
 //                .withDefaultSchema()
