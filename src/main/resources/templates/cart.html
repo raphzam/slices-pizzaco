@@ -13,102 +13,116 @@
     <title>My Cart</title>
     <link rel="stylesheet" th:href="@{/styles/frontstyles.css}">
 </head>
-<body>
+<body class="bg">
 <div th:replace="base :: navlinksfg"></div>
-<div class="bg"></div>
-<div class="box">
-<h1>My Cart</h1>
+<!--<div class="box">-->
 
-<div th:if="${checkoutMessage}" style="color: green">
-    [[${checkoutMessage}]]
-</div>
-
-<!--USER CART-->
-<div sec:authorize="isAuthenticated()">
-
-    <div th:each="order : ${user.orders}">
-        <div th:if="${order.isComplete() == false}">
-            <h5>Order# [[${order.id}]]</h5>
-            <div th:each="pizza : ${order.pizzas}">
-                Pizza with <span th:each="ingredient : ${pizza.ingredients}">[[${ingredient.name}]], &nbsp;</span>
-                <a th:href="@{/updatepizza/{id} (id=${pizza.id})}">Edit pizza</a>
+<div class="row">
+    <div class="col"></div>
+    <div class="col-6">
+        <div class="card" style="background-color: burlywood; margin-top: 50px; padding: 15px">
+            <h2 class="card-header text-center">My Cart</h2>
+            <div th:if="${checkoutMessage}" style="color: green">
+                [[${checkoutMessage}]]
             </div>
-            <a th:href="@{/addToOrder/{id} (id=${order.id})}">Add another pizza</a><br>
-            Order Total: $[[${order.total}]]<br>
+            <!--USER CART-->
+            <div sec:authorize="isAuthenticated()">
 
-            <!--TRIGGER CHECKOUT BUTTON-->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                Checkout
-            </button>
-            <!--END CHECKOUT BUTTON-->
-
-
-            <!--ORDER CONFIRMATION POP UP-->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                 aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Order Confirmation</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
+                <div th:each="order : ${user.orders}">
+                    <div th:if="${order.isComplete() == false}">
+                        <h5>Order# [[${order.id}]]</h5>
+                        <div th:each="pizza : ${order.pizzas}">
+                            Pizza with <span
+                                th:each="ingredient : ${pizza.ingredients}">[[${ingredient.name}]], &nbsp;</span>
+                            <a th:href="@{/updatepizza/{id} (id=${pizza.id})}">Edit pizza</a>
                         </div>
-                        <div class="modal-body">
-                            Order# [[${order.id}]]<br>
-                            <div th:each="pizza : ${order.pizzas}">
-                                Pizza with <span
-                                    th:each="ingredient : ${pizza.ingredients}">[[${ingredient.name}]], &nbsp;</span>
+                        <a th:href="@{/addToOrder/{id} (id=${order.id})}">Add another pizza</a><br>
+                        Order Total:
+                        <span th:inline="text">$[[${#numbers.formatDecimal(order.total, 0, 'COMMA', 2, 'POINT')}]]</span>
+                        <br>
+
+
+                        <!--TRIGGER CHECKOUT BUTTON-->
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            Checkout
+                        </button>
+                        <!--END CHECKOUT BUTTON-->
+
+
+                        <!--ORDER CONFIRMATION POP UP-->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                             aria-labelledby="exampleModalLabel"
+                             aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Order Confirmation</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Order# [[${order.id}]]<br>
+                                        <div th:each="pizza : ${order.pizzas}">
+                                            Pizza with <span
+                                                th:each="ingredient : ${pizza.ingredients}">[[${ingredient.name}]], &nbsp;</span>
+                                        </div>
+
+                                        <span th:inline="text">$[[${#numbers.formatDecimal(order.total, 0, 'COMMA', 2, 'POINT')}]]</span>
+                                    </div>
+                                    <!--POP UP BUTTONS -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Edit
+                                        </button>
+                                        <a th:href="@{/checkout/{id} (id=${order.id})}">
+                                            <button type="button" class="btn btn-primary">Place Order</button>
+                                        </a>
+                                    </div>
+                                    <!--END POP UP BUTTONS -->
+                                </div>
                             </div>
+                        </div>
+                    </div>  <!--END COMPLETE LOOP ORDERS -->
+                    <!--POP UP END-->
+                </div> <!--END ALL ORDERS LOOP-->
 
-                            $[[${order.total}]]<br>
+                <!--PREVIOUS ORDERS-->
+                <h3>Previous Orders</h3>
+                <div th:each="order : ${user.orders}">
+                    <div th:if="${order.isComplete() == true}">
+                        <h5>Order# [[${order.id}]]</h5>
+                        <div th:each="pizza : ${order.pizzas}">
+                            Pizza with <span
+                                th:each="ingredient : ${pizza.ingredients}">[[${ingredient.name}]], &nbsp;</span>
+                            <br>
                         </div>
-                        <!--POP UP BUTTONS -->
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Edit</button>
-                            <a th:href="@{/checkout/{id} (id=${order.id})}">
-                                <button type="button" class="btn btn-primary">Place Order</button>
-                            </a>
-                        </div>
-                        <!--END POP UP BUTTONS -->
+                        Placed on: [[${order.timeSubmitted}]]
                     </div>
                 </div>
+                <!--END PREVIOUS ORDERS-->
             </div>
-        </div>  <!--END COMPLETE LOOP ORDERS -->
-        <!--POP UP END-->
-    </div> <!--END ALL ORDERS LOOP-->
+            <!--END USER CART-->
 
-    <!--PREVIOUS ORDERS-->
-    <h3>Previous Orders</h3>
-    <div th:each="order : ${user.orders}">
-        <div th:if="${order.isComplete() == true}">
-            <h5>Order# [[${order.id}]]</h5>
-            <div th:each="pizza : ${order.pizzas}">
-                Pizza with <span th:each="ingredient : ${pizza.ingredients}">[[${ingredient.name}]], &nbsp;</span>
-                <br>
+            <!--GUEST CART-->
+            <div sec:authorize="!isAuthenticated()">
+                <div th:each="one : ${guestOrders}">
+                    <h5>Order# [[${one.id}]]</h5>
+                    <div th:each="pizza : ${one.pizzas}">
+                        Pizza with <span th:each="ingredient : ${pizza.ingredients}">[[${ingredient.name}]], </span>
+                        <a th:href="@{/updatepizza/{id} (id=${pizza.id})}">Edit pizza</a>
+                    </div>
+                    <a th:href="@{/addToOrder/{id} (id=${one.id})}">Add another pizza</a>
+                    <span th:inline="text">$[[${#numbers.formatDecimal(one.total, 0, 'COMMA', 2, 'POINT')}]]</span><br>
+                </div>
+
+                <a th:href="@{/login}">Login</a> or <a th:href="@{/register}">Sign Up</a> checkout.
             </div>
-            Placed on: [[${order.timeSubmitted}]]
         </div>
     </div>
-    <!--END PREVIOUS ORDERS-->
+    <div class="col"></div>
 </div>
-<!--END USER CART-->
 
-<!--GUEST CART-->
-<div sec:authorize="!isAuthenticated()">
-    <div th:each="one : ${guestOrders}">
-        <h5>Order# [[${one.id}]]</h5>
-        <div th:each="pizza : ${one.pizzas}">
-            Pizza with <span th:each="ingredient : ${pizza.ingredients}">[[${ingredient.name}]], </span>
-            <a th:href="@{/updatepizza/{id} (id=${pizza.id})}">Edit pizza</a>
-        </div>
-        <a th:href="@{/addToOrder/{id} (id=${one.id})}">Add another pizza</a>
-        $[[${one.total}]]<br>
-    </div>
-
-    <a th:href="@{/login}">Login</a> or <a th:href="@{/register}">Sign Up</a> checkout.
-</div>
-</div>
+<!--</div> BOX-->
 <!--END GUEST CART-->
 
 <!-- Optional JavaScript -->
