@@ -32,7 +32,8 @@ public class CommandLineRunnerBean implements CommandLineRunner {
         User user1 = new User();
         user1.setUsername("user");
         user1.setPassword("password");
-        user1.setEnabled(true);;
+        user1.setEnabled(true);
+        ;
         userRepository.save(user1);
 
         Role role = new Role("user", "ROLE_USER");
@@ -42,6 +43,9 @@ public class CommandLineRunnerBean implements CommandLineRunner {
         //TYPES
         Type dough = new Type("dough");
         typeRepository.save(dough);
+
+        Type cheese = new Type("cheese");
+        typeRepository.save(cheese);
 
         Type sauce = new Type("sauce");
         typeRepository.save(sauce);
@@ -56,25 +60,36 @@ public class CommandLineRunnerBean implements CommandLineRunner {
         typeRepository.save(topping);
 
 
-
         //DOUGH
 
         Ingredient ing1 = new Ingredient();
-        ing1.setName("NY Style");
+        ing1.setName("NY Style Crust");
         ing1.setPicUrl("https://res.cloudinary.com/cloudim/image/upload/v1597240832/crust_yedtop.jpg");
         ing1.setType(dough);
         ingredientRepository.save(ing1);
 
         Ingredient ing2 = new Ingredient();
-        ing2.setName("Neapolitan");
+        ing2.setName("Neapolitan Crust");
         ing2.setPicUrl("https://res.cloudinary.com/cloudim/image/upload/v1597240832/crust_yedtop.jpg");
         ing2.setType(dough);
         ingredientRepository.save(ing2);
 
+//        CHEESE
+        Ingredient cheese1 = new Ingredient();
+//        cheese1.setPicUrl();
+        cheese1.setName("Mozzarella");
+        cheese1.setType(cheese);
+        ingredientRepository.save(cheese1);
+
+        Ingredient cheese2 = new Ingredient();
+//        cheese1.setPicUrl();
+        cheese2.setName("Provolone");
+        cheese2.setType(cheese);
+        ingredientRepository.save(cheese2);
+
 //        SAUCE
 
         Ingredient ing3 = new Ingredient();
-        ing3.setName(" Classic Tomato");
         ing3.setPicUrl("https://res.cloudinary.com/cloudim/image/upload/v1597241335/tomatosauce_mldjpj.png");
         ing3.setName("Classic Tomato");
         ing3.setType(sauce);

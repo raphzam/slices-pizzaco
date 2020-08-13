@@ -6,9 +6,9 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 
 public interface UserRepository extends CrudRepository<User,Long> {
-
-
     User findByUsername(String username);
+
+    User findByFirstNameContainingOrLastNameContaining(String firstName, String lastname);
 
 }
 

@@ -13,6 +13,7 @@
     <title>My Cart</title>
 </head>
 <body>
+<div th:replace="base :: navlinksfg"></div>
 <h1>My Cart</h1>
 
 <div th:if="${checkoutMessage}" style="color: green">
@@ -26,7 +27,7 @@
         <div th:if="${order.isComplete() == false}">
             <h5>Order# [[${order.id}]]</h5>
             <div th:each="pizza : ${order.pizzas}">
-                Pizza with <span th:each="ingredient : ${pizza.ingredients}">[[${ingredient.name}]],</span>
+                Pizza with <span th:each="ingredient : ${pizza.ingredients}">[[${ingredient.name}]], &nbsp;</span>
                 <a th:href="@{/updatepizza/{id} (id=${pizza.id})}">Edit pizza</a>
             </div>
             <a th:href="@{/addToOrder/{id} (id=${order.id})}">Add another pizza</a><br>
@@ -54,7 +55,7 @@
                             Order# [[${order.id}]]<br>
                             <div th:each="pizza : ${order.pizzas}">
                                 Pizza with <span
-                                    th:each="ingredient : ${pizza.ingredients}">[[${ingredient.name}]],</span>
+                                    th:each="ingredient : ${pizza.ingredients}">[[${ingredient.name}]], &nbsp;</span>
                             </div>
 
                             $[[${order.total}]]<br>
@@ -80,7 +81,7 @@
         <div th:if="${order.isComplete() == true}">
             <h5>Order# [[${order.id}]]</h5>
             <div th:each="pizza : ${order.pizzas}">
-                Pizza with <span th:each="ingredient : ${pizza.ingredients}">[[${ingredient.name}]],</span>
+                Pizza with <span th:each="ingredient : ${pizza.ingredients}">[[${ingredient.name}]], &nbsp;</span>
                 <br>
             </div>
             Placed on: [[${order.timeSubmitted}]]
@@ -99,9 +100,10 @@
             <a th:href="@{/updatepizza/{id} (id=${pizza.id})}">Edit pizza</a>
         </div>
         <a th:href="@{/addToOrder/{id} (id=${one.id})}">Add another pizza</a>
+        $[[${one.total}]]<br>
     </div>
 
-    <a href="#">Login</a> or <a href="#">Sign Up</a> checkout.
+    <a th:href="@{/login}">Login</a> or <a th:href="@{/register}">Sign Up</a> checkout.
 </div>
 <!--END GUEST CART-->
 

@@ -86,3 +86,28 @@ a{
     border-radius: 4px;
     box-shadow: 0 5px 15px rgba(0,0,0,.5);
 }
+
+.bg {
+
+    background-image: url("/static/images/backgroundpizza.jpg");
+    opacity: 5;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.boxupdate{
+    min-height: 300px;
+    margin: auto;
+    width: 600px;
+    padding: 20px;
+    box-sizing: border-box;
+    background: burlywood;
+    border-radius: 4px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+}
+
+.message{
+    color: red;
+}
