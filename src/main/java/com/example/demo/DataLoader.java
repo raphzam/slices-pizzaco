@@ -11,8 +11,6 @@ public class DataLoader extends CommandLineRunnerBean {
     @Autowired
     RoleRepository roleRepository;
 
-    @Autowired
-    AdminRepository adminRepository;
 
     public void run (String...args){
         User user2 = new User();
@@ -54,14 +52,15 @@ public class DataLoader extends CommandLineRunnerBean {
         Role role4 = new Role("ingrid", "ROLE_USER");
         roleRepository.save(role4);
 
-        Admin admin = new Admin(
-                "Admin",
-                "Pizza",
-                "admin@pizza.com",
-                "admin",
-                "password",
-                true);
-        adminRepository.save(admin);
+        User admin = new User();
+        admin.setFirstName("Admin");
+        admin.setLastName("Admin");
+        admin.setEmail("admin@pizza.com");
+        admin.setPhoneNumber("555-123-7777");
+        admin.setUsername("admin");
+        admin.setPassword("password");
+        admin.setEnabled(true);;
+        userRepository.save(admin);
 
         Role roleAdmin = new Role("admin","ROLE_ADMIN");
         roleRepository.save(roleAdmin);

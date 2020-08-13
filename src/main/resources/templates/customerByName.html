@@ -26,7 +26,8 @@
         </thead>
 
         <tbody>
-        <tr th:each="users : ${customers}">
+        <tr th:each="users : ${customers}"
+        th:if="${users.username != 'admin'}">
             <td th:text="${users.id}"></td>
             <td th:text="${users.firstName}"></td>
             <td th:text="${users.lastName}"></td>

@@ -48,8 +48,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .dataSource(dataSource)
                 .usersByUsernameQuery("select username, password, enabled from " +
                         "user_table where username = ?")
-                .usersByUsernameQuery("select username, password, enabled from " +
-                        "admin_table where username = ?")
                 .authoritiesByUsernameQuery("select username, role from role_table where username = ?");
 
 //                .withDefaultSchema()

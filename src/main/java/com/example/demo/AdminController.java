@@ -47,11 +47,6 @@ public class AdminController {
     @RequestMapping("/admin/customers")
     public String viewCustomers(Model model){
         model.addAttribute("customers", userRepository.findAll());
-//
-//        for (Role customers : roleRepository.findAllByRole("ROLE_USER")){
-//
-//        }
-
         return "customerByName";
     }
 
