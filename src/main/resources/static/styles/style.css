@@ -1,6 +1,6 @@
 body
 {
-    margine: 0;
+    margin: 0;
     padding: 0;
     background: firebrick;
 }
@@ -47,4 +47,42 @@ body
 }
 .addash{
     text-align: center;
+}
+
+.btn{
+    margin-bottom: 5px !important;
+}
+
+a{
+    color: black !important;
+}
+
+.box2
+{
+    min-height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+    padding: 20px;
+    box-sizing: border-box;
+    background: burlywood;
+    border-radius: 4px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    display: flex;
+}
+
+.total {
+    text-align: center;
+}
+
+.box3
+{
+    min-height: 300px;
+    margin: auto;
+    width: 500px;
+    padding: 20px;
+    box-sizing: border-box;
+    background: burlywood;
+    border-radius: 4px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.5);
 }

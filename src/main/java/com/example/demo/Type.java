@@ -16,6 +16,11 @@ public class Type {
             fetch = FetchType.EAGER)
     private Set<Ingredient> ingredients;
 
+    @Override
+    public String toString() {
+        return name;
+    }
+
     public Type() {
     }
 

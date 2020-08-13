@@ -1,23 +1,46 @@
-<link rel="stylesheet" type="text/css" href="../static/style.css" />
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Ingredients</title>
+    <div th:replace="base :: headerfg"></div>
 </head>
 <body>
-<h2 class="h2">Update Ingredient</h2>
+<h2 class="h2">Add/Update Ingredient</h2>
 <div class="box">
 
-    <form class="card-form">
+    <form class="card-form" autocomplete="off"
+          th:action="@{/admin/processAddIngredient}"
+          th:object="${ingredient}"
+          method="post"
+          enctype="multipart/form-data">
         <div class="form-row">
             <div class="col-md-6 mb-3">
-                <label for="ingredient">Ingredient name</label>
-                <input type="text" class="form-control" id="ingredient" value="" required>
-        <label >Choose a category</label>
-        <select th:field="*{category.id}">
-            <option th:each="category : ${categories}"
-                    th:value="${category.id}"
-                    th:text="${category.title}"></option>
-        </select>
+
+                <input type="hidden" th:field="*{id}"/>
+
+                <label for="ingredient">Ingredient name:</label>
+                <input type="text" class="form-control" id="ingredient" placeholder="Ingredient"
+                       th:field="*{name}">
+
+                <br/>
+
+                <label>Choose a Category:</label>
+                <select th:field="*{type}">
+                    <option th:each="type : ${type}"
+                            th:value="${type.id}"
+                            th:text="${type.name}"></option>
+                </select>
+                <br/>
+                <br/>
+
+                <label>Upload Image:</label>
                 <input type="file" name="file"/>
-        <button class="btn btn-primary" type="submit">Update Ingredient</button>
-</div>
-</div>
+
+                <br/>
+                <br/>
+                <button class="btn btn-primary" type="submit">Enter Ingredient</button>
+            </div>
+        </div>
     </form>
 </div>

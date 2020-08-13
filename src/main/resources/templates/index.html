@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
+    <div th:replace="base :: headerfg"></div>
 </head>
 <body>
+<div th:replace="base :: navlinksfg"></div>
 <h4>Homepage Placeholder</h4>
 
 
@@ -27,5 +29,6 @@
 <br/>
 <a th:href="@{/cart}">My Cart</a>
 
+<div th:replace="base :: footerfg"></div>
 </body>
 </html>
