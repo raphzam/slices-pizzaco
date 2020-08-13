@@ -58,6 +58,14 @@ public class AdminController {
     @RequestMapping("/admin/totalsales")
     public String totalSales(Model model){
         model.addAttribute("orders", orderRepository.findAll());
+        model.addAttribute("orders", orderRepository.findAll());
+        double totalSales = 0;
+
+        for (Order order : orderRepository.findAll()){
+            totalSales += order.getTotal();
+        }
+
+        model.addAttribute("totalSales", totalSales);
         return "totalsales";
     }
 
