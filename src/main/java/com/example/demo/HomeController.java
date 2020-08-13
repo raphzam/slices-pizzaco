@@ -87,7 +87,7 @@ public class HomeController {
 
     @GetMapping("/cart")
     public String loadUserCart(Model model, Principal principal) {
-        for (Order order : orderRepository.findAll()){
+        for (Order order : orderRepository.findAll()) {
             order.setTotal(order.calculateTotal());
             orderRepository.save(order);
         }
@@ -137,14 +137,18 @@ public class HomeController {
         return "redirect:/";
     }
 
-//    @RequestMapping("/checkout")
-//    public String userCheckout(Principal principal){
-//        String username = principal.getName();
-//        User currentUser = userRepository.findByUsername(username);
-//
-//        for (Order order : currentUser)
-//
-//        return "redirect:/cart";
+    @RequestMapping("/checkout/{id}")
+    public String userCheckout(@PathVariable("id") long id, Model model, Principal principal) {
+        Order order = orderRepository.findById(id).get();
+
+        order.setComplete(true);
+        order.setLocalTime();
+        orderRepository.save(order);
+        User currentUser = userRepository.findByUsername(principal.getName());
+        model.addAttribute("user", currentUser);
+        model.addAttribute("checkoutMessage", "Your order has been submitted!");
+        return "cart";
     }
+}
 
 

@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.HashSet;
 import java.util.Set;
@@ -25,12 +26,19 @@ public class Order {
 
     private boolean complete;
 
-    private LocalTime localTime;
+    private LocalDateTime localTime;
 
     public Order() {
         this.complete=false;
     }
 
+    public LocalDateTime getLocalTime() {
+        return localTime;
+    }
+
+    public void setLocalTime() {
+        this.localTime = LocalDateTime.now();
+    }
 
     public long getId() {
         return id;

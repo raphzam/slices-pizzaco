@@ -15,11 +15,14 @@
 <body>
 <h1>My Cart</h1>
 
+<div th:if="${checkoutMessage}" style="color: green">
+    [[${checkoutMessage}]]
+</div>
+
 <!--USER CART-->
 <div sec:authorize="isAuthenticated()">
 
     <div th:each="order : ${user.orders}">
-
         <div th:if="${order.isComplete() == false}">
             <h5>Order# [[${order.id}]]</h5>
             <div th:each="pizza : ${order.pizzas}">
@@ -28,19 +31,37 @@
 
             </div>
             <a th:href="@{/addToOrder/{id} (id=${order.id})}">Add another pizza</a>
+            <a th:href="@{/checkout/{id} (id=${order.id})}">Checkout</a>
         </div>
     </div>
+
+    <h3>Previous Orders</h3>
+
+    <div th:each="order : ${user.orders}">
+        <div th:if="${order.isComplete() == true}">
+            <h5>Order# [[${order.id}]]</h5>
+            <div th:each="pizza : ${order.pizzas}">
+                Pizza with <span th:each="ingredient : ${pizza.ingredients}">[[${ingredient.name}]],</span>
+            </div>
+        </div>
+    </div>
+
+
 </div>
-<a href="#">Checkout</a>
 
 <!--GUEST CART-->
 <div sec:authorize="!isAuthenticated()">
     <div th:each="one : ${guestOrders}">
+        <h5>Order# [[${one.id}]]</h5>
         <div th:each="pizza : ${one.pizzas}">
-            <h5>Order# [[${one.id}]]</h5>
             Pizza with <span th:each="ingredient : ${pizza.ingredients}">[[${ingredient.name}]],</span>
+            <a th:href="@{/updatepizza/{id} (id=${pizza.id})}">Edit pizza</a>
         </div>
+        <a th:href="@{/addToOrder/{id} (id=${one.id})}">Add another pizza</a>
     </div>
+
+    <a href="#">Login</a> or <a href="#">Sign Up</a> checkout.
+
 </div>
 
 <!-- Optional JavaScript -->
