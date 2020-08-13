@@ -4,10 +4,16 @@
     <meta charset="UTF-8">
     <title>Register</title>
     <div th:replace="base :: headerfg"></div>
+    <style>
+        body{
+            text-align: center;
+        }
+    </style>
+    <link rel="stylesheet" th:href="@{/styles/frontstyles.css}">
 </head>
 <body>
 <div th:replace="base :: navlinksfg"></div>
-
+<div class="bg">
 <div class="box3">
     <h4>Register</h4>
     <form autocomplete="off"
@@ -16,33 +22,33 @@
 
         <input type="hidden" th:field="*{id}"/>
 
-        First Name:
+        First Name:<br/>
         <input type="text" id="firstName" placeholder="First Name"
                th:field="*{firstName}"/>
 
         <br>
 
-        Last Name:
+        Last Name:<br/>
         <input type="text" id="lastName" placeholder="Last Name"
                th:field="*{lastName}"/>
         <br>
 
-        Email:
+        Email:<br/>
         <input type="email" id="email" placeholder="email@domain.com"
                th:field="*{email}"/>
         <br>
 
-        Phone Number:
+        Phone Number:<br/>
         <input type="text" id="phoneNumber" placeholder="Phone Number"
                th:field="*{phoneNumber}"/>
         <br>
 
-        Create Username:
+        Create Username:<br/>
         <input type="text" id="username" placeholder="Username"
                th:field="*{username}"/>
         <br>
 
-        Create a Password
+        Create a Password<br/>
         <input type="password" id="password" placeholder="Password"
                th:field="*{password}">
         <br>
@@ -51,5 +57,6 @@
     </form>
 </div>
 <div th:replace="base :: footerfg"></div>
+</div>
 </body>
 </html>
