@@ -11,9 +11,12 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <title>My Cart</title>
+    <link rel="stylesheet" th:href="@{/styles/frontstyles.css}">
 </head>
 <body>
 <div th:replace="base :: navlinksfg"></div>
+<div class="bg"></div>
+<div class="box">
 <h1>My Cart</h1>
 
 <div th:if="${checkoutMessage}" style="color: green">
@@ -104,6 +107,7 @@
     </div>
 
     <a th:href="@{/login}">Login</a> or <a th:href="@{/register}">Sign Up</a> checkout.
+</div>
 </div>
 <!--END GUEST CART-->
 
