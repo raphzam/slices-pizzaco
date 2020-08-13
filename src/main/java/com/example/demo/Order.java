@@ -3,6 +3,7 @@ package com.example.demo;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -28,6 +29,9 @@ public class Order {
 
     private LocalDateTime localTime;
 
+    private String timeSubmitted;
+
+
     public Order() {
         this.complete=false;
     }
@@ -38,6 +42,17 @@ public class Order {
 
     public void setLocalTime() {
         this.localTime = LocalDateTime.now();
+    }
+
+    public String getTimeSubmitted() {
+        return timeSubmitted;
+    }
+
+    public void setTimeSubmitted() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy HH:mm:ss");
+        setLocalTime();
+        String formattedTime = localTime.format(formatter);
+        this.timeSubmitted = formattedTime;
     }
 
     public long getId() {

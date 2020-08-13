@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import javax.persistence.*;
+import java.text.DecimalFormat;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -8,7 +9,7 @@ import java.util.Set;
 @Table(name = "pizza_table")
 public class Pizza {
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @ManyToMany
@@ -39,9 +40,9 @@ public class Pizza {
         this.ingredients = ingredients;
     }
 
-    public void addIngredient(Ingredient ingredient){
-        if (this.ingredients==null){
-            this.ingredients=new HashSet<Ingredient>();
+    public void addIngredient(Ingredient ingredient) {
+        if (this.ingredients == null) {
+            this.ingredients = new HashSet<Ingredient>();
         }
         this.ingredients.add(ingredient);
     }
@@ -62,16 +63,17 @@ public class Pizza {
         this.price = price;
     }
 
-    public double calculatePrice(){
+    public double calculatePrice() {
+        DecimalFormat df = new DecimalFormat("#.00");
         double pizzaPrice = 14.99;
 
         double extraCharge = 0; //5 ingredient base, charge for ingredients over 5
-
-        if (ingredients.size() > 5){
-            extraCharge = ( (ingredients.size()-5) * .50);
+        if (ingredients.size() > 5) {
+            extraCharge = ((ingredients.size() - 5) * .50);
         }
+        pizzaPrice += extraCharge;
 
-        pizzaPrice+=extraCharge;
+
 
         return pizzaPrice;
     }

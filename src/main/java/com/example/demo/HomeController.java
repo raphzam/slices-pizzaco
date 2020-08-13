@@ -82,7 +82,7 @@ public class HomeController {
 //            order.setTotal(order.calculateTotal());
 //            orderRepository.save(order);
         }
-        return "redirect:/";
+        return "redirect:/cart";
     }
 
     @GetMapping("/cart")
@@ -134,7 +134,7 @@ public class HomeController {
 //        order.setTotal(order.calculateTotal());
         orderRepository.save(order);
 
-        return "redirect:/";
+        return "redirect:/cart";
     }
 
     @RequestMapping("/checkout/{id}")
@@ -142,7 +142,7 @@ public class HomeController {
         Order order = orderRepository.findById(id).get();
 
         order.setComplete(true);
-        order.setLocalTime();
+        order.setTimeSubmitted();
         orderRepository.save(order);
         User currentUser = userRepository.findByUsername(principal.getName());
         model.addAttribute("user", currentUser);
