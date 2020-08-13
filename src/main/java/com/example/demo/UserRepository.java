@@ -5,10 +5,12 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 
-public interface UserRepository extends CrudRepository<User,Long> {
+public interface UserRepository extends CrudRepository<User, Long> {
     User findByUsername(String username);
 
-    User findByFirstNameContainingOrLastNameContaining(String firstName, String lastname);
+    //    Iterable <User> findAllByFirstNameContainingOrLastNameContaining(String firstName, String lastname);
+    Iterable<User> findByLastNameContainingOrFirstNameContainingAllIgnoreCase(String lastname, String firstname);
+
 
 }
 

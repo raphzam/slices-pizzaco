@@ -33,9 +33,11 @@ User
 	generate itemized receipt [order > pizza > print all the ingredients]
 		display date and time submitted
 		display cost of additional toppings
-	send email or text upon submission
+		
 	save order to customer’s history
-
+    
+    javascript pictures
+	send email or text upon submission
 
 Admin (3-4 pages)
 	

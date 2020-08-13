@@ -65,5 +65,8 @@ public class DataLoader extends CommandLineRunnerBean {
         Role roleAdmin = new Role("admin","ROLE_ADMIN");
         roleRepository.save(roleAdmin);
 
+//        System.out.println(userRepository.findAllByFirstNameContainingOrLastNameContaining("m","m"));
+        System.out.println(userRepository.findByLastNameContainingOrFirstNameContainingAllIgnoreCase("m","m"));
+
     }
 }

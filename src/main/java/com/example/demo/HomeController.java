@@ -153,6 +153,15 @@ public class HomeController {
         model.addAttribute("checkoutMessage", "Your order has been submitted!");
         return "cart";
     }
+
+    //SEARCH FUNCTION
+
+    @PostMapping("/search")
+    public String processSearch(@RequestParam("string") String name, Model model){
+//        model.addAttribute("customers", userRepository.findAllByFirstNameContainingOrLastNameContaining(name,name));
+        model.addAttribute("customers", userRepository.findByLastNameContainingOrFirstNameContainingAllIgnoreCase(name,name));
+        return "searchbyname";
+    }
 }
 
 
