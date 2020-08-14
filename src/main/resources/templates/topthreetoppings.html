@@ -14,7 +14,6 @@
     <table class="table">
         <thead class="thead-light">
         <tr>
-            <th scope="col">ID</th>
             <th scope="col">Toppings Name</th>
             <th scope="col">Category</th>
             <th scope="col">Tally</th>
@@ -22,14 +21,8 @@
         </tr>
         </thead>
         <tbody>
-<!--        <tr>-->
-<!--            <th scope="row">1</th>-->
-<!--            <td>Chicken</td>-->
-<!--            <td>Meat</td>-->
-<!--            <td>1</td>-->
-<!--        </tr>-->
+
         <tr th:each="topping : ${toppings}">
-            <th scope="row"></th>
             <td>[[${topping.name}]]</td>
             <td>[[${topping.type}]]</td>
             <td>[[${topping.tally}]]</td>
