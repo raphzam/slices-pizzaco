@@ -5,11 +5,16 @@
     <meta charset="UTF-8">
     <title>Home</title>
     <div th:replace="base :: headerfg"></div>
+    <link rel="stylesheet" th:href="@{/styles/frontstyles.css}">
+    <style>
+        body{
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 <div th:replace="base :: navlinksfg"></div>
-<h4>Homepage Placeholder</h4>
-
+<div class="bg">
 
 <div sec:authorize="isAuthenticated()">
     Welcome <span sec:authentication="name"></span>!
@@ -17,7 +22,28 @@
 <div sec:authorize="!isAuthenticated()">
     Welcome guest!
 </div>
+<div>
+    <table cellspacing="15" cellpadding="15"class="center">
+        <tr>
 
+            <th><a th:href="@{/login}"><h4 h4 style="color:white;">LOGIN</h4></a></th>
+
+            <th><a th:href="@{/register}"><h4 style="color:white;">REGISTER</h4></a></th>
+
+            <!--Link to place order-->
+            <th><a th:href="@{/order}"><h4 h4 style="color:white;">CLICK TO PLACE ORDER</h4></a></th>
+            <!--Link to cart-->
+
+            <th><a th:href="@{/cart}"><h4 h4 style="color:white;">MY CART</h4></a></th>
+        </tr>
+    </table>
+    <div sec:authorize="isAuthenticated()">
+        <h4 style="color: white"; font-family="">  Welcome <span sec:authentication="name"></span>!</h4>
+    </div>
+    <div sec:authorize="!isAuthenticated()">
+        <h4 style="color: white">Welcome guest!</h4>
+</div>
+</div>
 <br/>
 <a th:href="@{/login}">Login</a>
 <br/>
@@ -30,5 +56,6 @@
 <a th:href="@{/cart}">My Cart</a>
 
 <div th:replace="base :: footerfg"></div>
+
 </body>
 </html>
