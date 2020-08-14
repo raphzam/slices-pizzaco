@@ -3,61 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <title>Order</title>
-
+    <div th:replace="base :: headerfg"></div>
+    <link rel="stylesheet" th:href="@{/styles/main.css}">
 </head>
 <body>
+<div th:replace="base :: navlinksfg"></div>
 
-<h3>Order Form </h3>
+<div class="bg">
 
-<form autocomplete="off"
-      th:action="@{/processOrder}"
-      th:object="${pizza}"
-      method="post">
-    <input type="hidden" th:field="*{id}"/>
+    <div class="box3">
 
-    <input type="hidden" th:field="*{order}">
+        <h4>Select Your Ingredients:</h4>
 
-    Select dough type:
-    <div th:each="dough : ${doughs}">
-        <input type="checkbox" id="doughSelection1" th:value="${dough.id}" th:id="${dough.id}"
-               th:field="*{ingredients}" name="dough" class="dough"> <label for="doughSelection1">[[${dough.name}]]</label>
+        <form autocomplete="off"
+              th:action="@{/processOrder}"
+              th:object="${pizza}"
+              method="post">
+            <input type="hidden" th:field="*{id}"/>
+
+            <input type="hidden" th:field="*{order}">
+
+            Select dough type:
+            <div th:each="dough : ${doughs}" id="dough">
+                <input type="checkbox" id="doughSelection1" th:value="${dough.id}" th:id="${dough.id}"
+                       th:field="*{ingredients}" name="dough" class="dough1" > <label for="doughSelection1">[[${dough.name}]]</label>
+            </div>
+
+            Select sauce type:
+            <div th:each="sauce : ${sauces}">
+                <input type="checkbox" id="sauce" th:value="${sauce.id}" th:id="${sauce.id}"
+                       th:field="*{ingredients}" name="sauce" class="sauce"><label for="sauce">[[${sauce.name}]]</label>
+            </div>
+
+            Select cheese type:
+            <div th:each="cheese : ${cheeses}">
+                <input type="checkbox" id="cheeseSelection" th:value="${cheese.id}" th:id="${cheese.id}"
+                       th:field="*{ingredients}" name="cheese"> <label for="doughSelection1">[[${cheese.name}]]</label>
+            </div>
+
+            Check Protein type:
+            <div th:each="protein : ${proteins}">
+                <input type="checkbox" id="protein" th:value="${protein.id}"
+                       th:field="*{ingredients}"><label for="protein">[[${protein.name}]]</label>
+            </div>
+
+            Check Veggie type:
+            <div th:each="veggie : ${veggies}">
+                <input type="checkbox" th:id="${veggie.id}" th:value="${veggie.id}"
+                       th:field="*{ingredients}"><label th:for="${veggie.id}">[[${veggie.name}]]</label>
+            </div>
+
+            Check toppings type:
+            <div th:each="topping : ${toppings}">
+                <input type="checkbox" id="topping" th:value="${topping.id}"
+                       th:field="*{ingredients}"><label for="topping">[[${topping.name}]]</label>
+            </div>
+            <!--    <input type="radio" id="doughSelection2" name="Neapolitan Style" th:value="${ingredient.id}"-->
+            <!--           th:field="*{ingredients}"><label for="doughSelection2">Neapolitan Style</label>-->
+            <button type="submit" class="btn btn-warning">Order</button>
+        </form>
+
     </div>
 
-    Select sauce type:
-    <div th:each="sauce : ${sauces}">
-        <input type="checkbox" id="sauce" th:value="${sauce.id}" th:id="${sauce.id}"
-               th:field="*{ingredients}" name="sauce" class="sauce"><label for="sauce">[[${sauce.name}]]</label>
-    </div>
-
-    Select cheese type:
-    <div th:each="cheese : ${cheeses}">
-        <input type="checkbox" id="cheeseSelection" th:value="${cheese.id}" th:id="${cheese.id}"
-               th:field="*{ingredients}" name="cheese"> <label for="doughSelection1">[[${cheese.name}]]</label>
-    </div>
-
-    Check Protein type:
-    <div th:each="protein : ${proteins}">
-        <input type="checkbox" id="protein" th:value="${protein.id}"
-               th:field="*{ingredients}"><label for="protein">[[${protein.name}]]</label>
-    </div>
-
-    Check Veggie type:
-    <div th:each="veggie : ${veggies}">
-        <input type="checkbox" th:id="${veggie.id}" th:value="${veggie.id}"
-               th:field="*{ingredients}"><label th:for="${veggie.id}">[[${veggie.name}]]</label>
-    </div>
-
-    Check toppings type:
-    <div th:each="topping : ${toppings}">
-        <input type="checkbox" id="topping" th:value="${topping.id}"
-               th:field="*{ingredients}"><label for="topping">[[${topping.name}]]</label>
-    </div>
-    <!--    <input type="radio" id="doughSelection2" name="Neapolitan Style" th:value="${ingredient.id}"-->
-    <!--           th:field="*{ingredients}"><label for="doughSelection2">Neapolitan Style</label>-->
-    <input type="submit" value="Order">
-</form>
-
-
+</div>
+<div th:replace="base :: footerfg"></div>
 </body>
-
 </html>
