@@ -16,12 +16,6 @@
 <div th:replace="base :: navlinksfg"></div>
 <div class="bg">
 
-<div sec:authorize="isAuthenticated()">
-    Welcome <span sec:authentication="name"></span>!
-</div>
-<div sec:authorize="!isAuthenticated()">
-    Welcome guest!
-</div>
 <div>
     <table cellspacing="15" cellpadding="15"class="center">
         <tr>
@@ -38,24 +32,20 @@
         </tr>
     </table>
     <div sec:authorize="isAuthenticated()">
-        <h4 style="color: white"; font-family="">  Welcome <span sec:authentication="name"></span>!</h4>
+        <h4 style="color: white; font-family:'Vladimir Script';font-size:70px">  Welcome <span sec:authentication="name"></span>!</h4>
     </div>
     <div sec:authorize="!isAuthenticated()">
-        <h4 style="color: white">Welcome guest!</h4>
+        <h4 style="color: white; font-family: 'Vladimir Script';font-size:70px" >Welcome guest!</h4>
+    </div>
+    <h4 style="color: white;font-size:70px" >Serving
+        Custom, Artisan Pizzas</h4>
+</div>]
+
+
+
+<div th:replace="base :: footerfg">
+    </div>
 </div>
 </div>
-<br/>
-<a th:href="@{/login}">Login</a>
-<br/>
-<a th:href="@{/register}">Register</a>
-<br/>
-<!--Link to place order-->
-<a th:href="@{/order}">Click to place Order</a>
-<!--Link to cart-->
-<br/>
-<a th:href="@{/cart}">My Cart</a>
-
-<div th:replace="base :: footerfg"></div>
-
 </body>
 </html>
