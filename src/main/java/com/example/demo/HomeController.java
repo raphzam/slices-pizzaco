@@ -157,11 +157,104 @@ public class HomeController {
     //SEARCH FUNCTION
 
     @PostMapping("/search")
-    public String processSearch(@RequestParam("string") String name, Model model){
+    public String processSearch(@RequestParam("string") String name, Model model) {
 //        model.addAttribute("customers", userRepository.findAllByFirstNameContainingOrLastNameContaining(name,name));
-        model.addAttribute("customers", userRepository.findByLastNameContainingOrFirstNameContainingAllIgnoreCase(name,name));
+        model.addAttribute("customers", userRepository.findByLastNameContainingOrFirstNameContainingAllIgnoreCase(name, name));
         return "searchbyname";
     }
+
+
+    @RequestMapping("/top3")
+    public String top3() {
+//        int nyCount = 0;
+//        int neoCount = 0;
+//        int mozzCount = 0;
+//        int proCount = 0;
+//        int redSauceCount = 0;
+//        int whiteSauce = 0;
+//        int chickenCount = 0;
+//        int roniCount = 0;
+//        int bellCount = 0;
+//        int mushCount = 0;
+//        int pineCount = 0;
+//        int oliveCount = 0;
+//        int miscCount = 0;
+//        int i = (int) ingredient.getId();
+
+//
+//        switch (i) {
+//            case 1:
+//                nyCount++;
+//                break;
+//            case 2:
+//                neoCount++;
+//                break;
+//            case 3:
+//                mozzCount++;
+//                break;
+//            case 4:
+//                proCount++;
+//                break;
+//            case 5:
+//                redSauceCount++;
+//                break;
+//            case 6:
+//                whiteSauce++;
+//                break;
+//            case 7:
+//                chickenCount++;
+//                break;
+//            case 8:
+//                roniCount++;
+//                break;
+//            case 9:
+//                bellCount++;
+//                break;
+//            case 10:
+//                mushCount++;
+//                break;
+//            case 11:
+//                pineCount++;
+//                break;
+//            case 12:
+//                oliveCount++;
+//                break;
+//            default:
+//                miscCount++;
+//                break;
+//        }
+
+        for (Pizza pizza : pizzaRepository.findAll()) {
+            for (Ingredient ingredient : pizza.getIngredients()) {
+                int i = ingredient.getTally();
+                i++;
+                ingredient.setTally(i);
+                ingredientRepository.save(ingredient);
+            }
+        }
+        return "redirect:/";
+    }
+
+    @RequestMapping("/populartoppings")
+    public String topThreeToppings(Model model){
+        for (Ingredient ingredient : ingredientRepository.findAll()){
+            ingredient.setTally(0);
+            ingredientRepository.save(ingredient);
+        }
+
+        //tally currently used ingredients
+        for (Pizza pizza : pizzaRepository.findAll()) {
+            for (Ingredient ingredient : pizza.getIngredients()) {
+                int i = ingredient.getTally();
+                i++;
+                ingredient.setTally(i);
+                ingredientRepository.save(ingredient);
+            }
+        }
+        model.addAttribute("toppings", ingredientRepository.findAllByOrderByTallyDesc());
+        return "topthreetoppings";
+    }
+
 }
 
 

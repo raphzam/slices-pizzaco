@@ -33,7 +33,6 @@ public class CommandLineRunnerBean implements CommandLineRunner {
         user1.setUsername("user");
         user1.setPassword("password");
         user1.setEnabled(true);
-        ;
         userRepository.save(user1);
 
         Role role = new Role("user", "ROLE_USER");
@@ -66,6 +65,7 @@ public class CommandLineRunnerBean implements CommandLineRunner {
         ing1.setName("NY Style Crust");
         ing1.setPicUrl("https://res.cloudinary.com/cloudim/image/upload/v1597240832/crust_yedtop.jpg");
         ing1.setType(dough);
+//        ing1.setTally(3);
         ingredientRepository.save(ing1);
 
         Ingredient ing2 = new Ingredient();
@@ -79,6 +79,7 @@ public class CommandLineRunnerBean implements CommandLineRunner {
 //        cheese1.setPicUrl();
         cheese1.setName("Mozzarella");
         cheese1.setType(cheese);
+//        cheese1.setTally(5);
         ingredientRepository.save(cheese1);
 
         Ingredient cheese2 = new Ingredient();
@@ -141,7 +142,12 @@ public class CommandLineRunnerBean implements CommandLineRunner {
         ing10.setName("Black Olives");
         ing10.setPicUrl("https://res.cloudinary.com/cloudim/image/upload/v1597240842/blackolives_vbesoh.jpg");
         ing10.setType(topping);
+//        ing10.setTally(7);
         ingredientRepository.save(ing10);
+
+//        for (Ingredient ingredient : ingredientRepository.findAllByOrderByTallyDesc()){
+//            System.out.println(ingredient.getName() + " " + ingredient.getTally());
+//        }
 
     }
 

@@ -20,7 +20,7 @@ public class Ingredient {
 
     private boolean inStock;
 
-    private int counter = 0;
+    private int tally;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "type_id")
@@ -77,4 +77,13 @@ public class Ingredient {
     public void setInStock(boolean inStock) {
         this.inStock = inStock;
     }
+
+    public int getTally() {
+        return tally;
+    }
+
+    public void setTally(int tally) {
+        this.tally = tally;
+    }
+
 }
