@@ -16,7 +16,7 @@ public class DataLoader extends CommandLineRunnerBean {
         User user2 = new User();
         user2.setFirstName("Olga");
         user2.setLastName("G.");
-        user2.setEmail("olga@pizza.com");
+        user2.setEmail("pizzaconfirmationjava@gmail.com");
         user2.setPhoneNumber("555-123-4444");
         user2.setUsername("olga");
         user2.setPassword("password");
@@ -29,7 +29,7 @@ public class DataLoader extends CommandLineRunnerBean {
         User user3 = new User();
         user3.setFirstName("Raphael");
         user3.setLastName("Z.");
-        user3.setEmail("raphael@pizza.com");
+        user3.setEmail("pizzaconfirmationjava@gmail.com");
         user3.setPhoneNumber("555-123-5555");
         user3.setUsername("raphael");
         user3.setPassword("password");
@@ -42,7 +42,7 @@ public class DataLoader extends CommandLineRunnerBean {
         User user4 = new User();
         user4.setFirstName("Ingrid");
         user4.setLastName("M.");
-        user4.setEmail("ingrid@pizza.com");
+        user4.setEmail("pizzaconfirmationjava@gmail.com");
         user4.setPhoneNumber("555-123-6666");
         user4.setUsername("ingrid");
         user4.setPassword("password");
@@ -55,7 +55,7 @@ public class DataLoader extends CommandLineRunnerBean {
         User admin = new User();
         admin.setFirstName("Admin");
         admin.setLastName("Admin");
-        admin.setEmail("admin@pizza.com");
+        admin.setEmail("pizzaconfirmationjava@gmail.com");
         admin.setPhoneNumber("555-123-7777");
         admin.setUsername("admin");
         admin.setPassword("password");

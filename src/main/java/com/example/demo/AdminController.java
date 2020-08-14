@@ -93,18 +93,21 @@ public class AdminController {
     }
 
     @PostMapping("/admin/processAddIngredient")
-    public String processUpdateAndAddIngredient(@ModelAttribute Ingredient ingredient, @RequestParam("file") MultipartFile file) {
-        if (file.isEmpty()) {
-            return "redirect:/admin/addingredient";
-        }
-        try {
-            Map uplaodResult = cloudinaryConfiguration.upload(file.getBytes(), ObjectUtils.asMap("resourcetype", "auto"));
-            ingredient.setPicUrl(uplaodResult.get("url").toString());
-            ingredientRepository.save(ingredient);
-        } catch (IOException e) {
-            e.printStackTrace();
-            return "redirect:/admin/addingredient";
-        }
+    public String processUpdateAndAddIngredient(@ModelAttribute Ingredient ingredient) {
+
+//        , @RequestParam("file") MultipartFile file
+//        if (file.isEmpty()) {
+//            return "redirect:/admin/addingredient";
+//        }
+//        try {
+//            Map uplaodResult = cloudinaryConfiguration.upload(file.getBytes(), ObjectUtils.asMap("resourcetype", "auto"));
+//            ingredient.setPicUrl(uplaodResult.get("url").toString());
+//            ingredientRepository.save(ingredient);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//            return "redirect:/admin/addingredient";
+//        }
+        ingredientRepository.save(ingredient);
         return "redirect:/admin/ingredients";
     }
 
