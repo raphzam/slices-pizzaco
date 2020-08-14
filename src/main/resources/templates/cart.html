@@ -10,6 +10,13 @@
     <link rel="stylesheet" th:href="@{/styles/frontstyles.css}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/5f50a1b10c.js" crossorigin="anonymous"></script>
+    <style>
+        i {
+            color: rgba(17, 54, 87, 0.2)
+        }
+
+    </style>
 
     <title>My Cart</title>
 </head>
@@ -32,9 +39,11 @@
                     <div th:if="${order.isComplete() == false}">
                         <h5>Order# [[${order.id}]]</h5>
                         <div th:each="pizza : ${order.pizzas}">
+                            <a th:href="@{/updatepizza/{id} (id=${pizza.id})}">
+                                <i class="far fa-edit"></i><!--Edit pizza-->
+                            </a>
                             Pizza with <span
-                                th:each="ingredient : ${pizza.ingredients}">[[${ingredient.name}]], &nbsp;</span>
-                            <a th:href="@{/updatepizza/{id} (id=${pizza.id})}">Edit pizza</a>
+                                th:each="ingredient : ${pizza.ingredients}">[[${ingredient.name}]],&nbsp</span>
                         </div>
                         <a th:href="@{/addToOrder/{id} (id=${order.id})}">Add another pizza</a><br>
                         Order Total:
@@ -43,9 +52,12 @@
 
 
                         <!--TRIGGER CHECKOUT BUTTON-->
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                            Checkout
-                        </button>
+                        <div class="text-center" style="margin: 15px">
+                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                    data-target="#exampleModal">
+                                Checkout
+                            </button>
+                        </div>
                         <!--END CHECKOUT BUTTON-->
 
 
@@ -114,9 +126,9 @@
                 </div> <!--END ALL ORDERS LOOP-->
 
                 <!--PREVIOUS ORDERS-->
-                <h3>Previous Orders</h3>
                 <div th:each="order : ${user.orders}">
                     <div th:if="${order.isComplete() == true}">
+                        <h3>Previous Orders</h3>
                         <h5>Order# [[${order.id}]]</h5>
                         <div th:each="pizza : ${order.pizzas}">
                             Pizza with <span
@@ -135,8 +147,10 @@
                 <div th:each="one : ${guestOrders}">
                     <h5>Order# [[${one.id}]]</h5>
                     <div th:each="pizza : ${one.pizzas}">
+                        <a th:href="@{/updatepizza/{id} (id=${pizza.id})}">
+                            <i class="far fa-edit"></i><!--Edit pizza-->
+                        </a>
                         Pizza with <span th:each="ingredient : ${pizza.ingredients}">[[${ingredient.name}]], </span>
-                        <a th:href="@{/updatepizza/{id} (id=${pizza.id})}">Edit pizza</a>
                     </div>
                     <a th:href="@{/addToOrder/{id} (id=${one.id})}">Add another pizza</a>
                     <span th:inline="text">$[[${#numbers.formatDecimal(one.total, 0, 'COMMA', 2, 'POINT')}]]</span><br>
