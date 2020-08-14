@@ -38,10 +38,6 @@
     </table>
 </div>
 
-<div th:each="topping : ${toppings}">
-    <p>[[${topping.name}]] used [[${topping.tally}]] </p>
-</div>
-
 <div th:replace="base :: footerfg"></div>
 </body>
 </html>

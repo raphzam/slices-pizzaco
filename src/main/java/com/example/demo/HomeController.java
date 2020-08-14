@@ -248,25 +248,25 @@ public class HomeController {
         return "redirect:/";
     }
 
-    @RequestMapping("/populartoppings")
-    public String topThreeToppings(Model model) {
-        for (Ingredient ingredient : ingredientRepository.findAll()) {
-            ingredient.setTally(0);
-            ingredientRepository.save(ingredient);
-        }
-
-        //tally currently used ingredients
-        for (Pizza pizza : pizzaRepository.findAll()) {
-            for (Ingredient ingredient : pizza.getIngredients()) {
-                int i = ingredient.getTally();
-                i++;
-                ingredient.setTally(i);
-                ingredientRepository.save(ingredient);
-            }
-        }
-        model.addAttribute("toppings", ingredientRepository.findAllByOrderByTallyDesc());
-        return "topthreetoppings";
-    }
+//    @RequestMapping("/populartoppings")
+//    public String topThreeToppings(Model model) {
+//        for (Ingredient ingredient : ingredientRepository.findAll()) {
+//            ingredient.setTally(0);
+//            ingredientRepository.save(ingredient);
+//        }
+//
+//        //tally currently used ingredients
+//        for (Pizza pizza : pizzaRepository.findAll()) {
+//            for (Ingredient ingredient : pizza.getIngredients()) {
+//                int i = ingredient.getTally();
+//                i++;
+//                ingredient.setTally(i);
+//                ingredientRepository.save(ingredient);
+//            }
+//        }
+//        model.addAttribute("toppings", ingredientRepository.findAllByOrderByTallyDesc());
+//        return "topthreetoppings";
+//    }
 
     @RequestMapping("/admin/toggleIngredient/{id}")
     public String toggleIngredient(@PathVariable("id") long id, Model model) {
