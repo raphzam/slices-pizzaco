@@ -32,12 +32,13 @@
         </tr>
     </table>
     <div sec:authorize="isAuthenticated()">
-        <h4 style="color: white; font-family:'Vladimir Script';font-size:70px">  Welcome <span sec:authentication="name"></span>!</h4>
+        <h4 class="font">  Welcome <span sec:authentication="name"></span>!</h4>
     </div>
     <div sec:authorize="!isAuthenticated()">
-        <h4 style="color: white; font-family: 'Vladimir Script';font-size:70px" >Welcome guest!</h4>
+        <h4 class="font" >Welcome guest!</h4>
     </div>
-    <h4 style="color: white;font-size:70px" >Serving
+    <div><h1 class="font2">&Slices Pizza Co</h1></div>
+    <h4 style="color: white;font-size:60px" >Serving
         Custom, Artisan Pizzas</h4>
 </div>]
 
