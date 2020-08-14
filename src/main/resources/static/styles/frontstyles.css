@@ -81,3 +81,14 @@ body,html{
     text-align: center;
 
 }
+.box3
+{
+    min-height: 300px;
+    margin: auto;
+    width: 500px;
+    padding: 20px;
+    box-sizing: border-box;
+    background: burlywood;
+    border-radius: 4px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+}
