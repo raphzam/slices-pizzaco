@@ -43,7 +43,7 @@ public class LoginRegistrationController {
 
         Role role = new Role(user.getUsername(), "ROLE_USER");
         roleRepository.save(role);
-        return "index";
+        return "redirect:/login";
     }
 
 }

@@ -278,6 +278,11 @@ public class HomeController {
         return "allingredients";
     }
 
+    @RequestMapping("/pizzabuilder")
+    public String loadPizzaBuilder(){
+        return "pizzabuilder";
+    }
+
 
 }
 

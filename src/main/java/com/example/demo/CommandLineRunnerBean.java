@@ -32,6 +32,7 @@ public class CommandLineRunnerBean implements CommandLineRunner {
         User user1 = new User();
         user1.setUsername("user");
         user1.setPassword("password");
+        user1.setEmail("pizzaconfirmationjava@gmail.com");
         user1.setEnabled(true);
         userRepository.save(user1);
 
