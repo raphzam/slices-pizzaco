@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -27,6 +28,9 @@ public class HomeController {
 
     @Autowired
     RoleRepository roleRepository;
+
+    @Autowired
+    private NotificationService notificationService;
 
     @RequestMapping("/")
     public String index() {
@@ -151,6 +155,15 @@ public class HomeController {
         User currentUser = userRepository.findByUsername(principal.getName());
         model.addAttribute("user", currentUser);
         model.addAttribute("checkoutMessage", "Your order has been submitted!");
+
+
+        try{
+            notificationService.sendNotification(currentUser);
+        }catch (MailException e){
+
+        }
+
+
         return "cart";
     }
 
