@@ -31,17 +31,6 @@ body,html{
     box-shadow: 0 5px 15px rgba(0,0,0,.5);
     display: flex;
 }
-.box3
-{
-    min-height: 300px;
-    margin: auto;
-    width: 300px;
-    padding: 20px;
-    box-sizing: border-box;
-    background: burlywood;
-    border-radius: 4px;
-    box-shadow: 0 5px 15px rgba(0,0,0,.5);
-}
 
 .center {
     margin-left: auto;
@@ -49,3 +38,31 @@ body,html{
 }
 
 
+.box7
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 1000px;
+    padding: 20px;
+    box-sizing: border-box;
+    background: burlywood;
+    border-radius: 4px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    display: flex;
+}
+.card-img {
+    width: 400px;
+    height: 400px;
+}
+.box.imgBx
+{
+    width: 400px;
+    height: 400px;
+}
+.content {
+    padding-left: 20px;
+    text-align: center;
+
+}
