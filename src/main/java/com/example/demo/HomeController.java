@@ -236,8 +236,8 @@ public class HomeController {
     }
 
     @RequestMapping("/populartoppings")
-    public String topThreeToppings(Model model){
-        for (Ingredient ingredient : ingredientRepository.findAll()){
+    public String topThreeToppings(Model model) {
+        for (Ingredient ingredient : ingredientRepository.findAll()) {
             ingredient.setTally(0);
             ingredientRepository.save(ingredient);
         }
@@ -254,6 +254,17 @@ public class HomeController {
         model.addAttribute("toppings", ingredientRepository.findAllByOrderByTallyDesc());
         return "topthreetoppings";
     }
+
+    @RequestMapping("/admin/toggleIngredient/{id}")
+    public String toggleIngredient(@PathVariable("id") long id, Model model) {
+        Ingredient ingredient = ingredientRepository.findById(id).get();
+        boolean inStock = ingredient.isInStock();
+        ingredient.setInStock(!inStock);
+        ingredientRepository.save(ingredient);
+        model.addAttribute("ingredients", ingredientRepository.findAll());
+        return "allingredients";
+    }
+
 
 }
 
