@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.authentication;
 
 import org.springframework.data.repository.CrudRepository;
 

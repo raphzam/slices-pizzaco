@@ -1,5 +1,16 @@
-package com.example.demo;
+package com.example.demo.web.controller;
 
+import com.example.demo.model.Ingredient;
+import com.example.demo.repository.IngredientRepository;
+import com.example.demo.config.NotificationService;
+import com.example.demo.model.Order;
+import com.example.demo.repository.OrderRepository;
+import com.example.demo.model.Pizza;
+import com.example.demo.repository.PizzaRepository;
+import com.example.demo.authentication.RoleRepository;
+import com.example.demo.repository.TypeRepository;
+import com.example.demo.authentication.User;
+import com.example.demo.authentication.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;
 import org.springframework.stereotype.Controller;

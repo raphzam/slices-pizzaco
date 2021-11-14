@@ -1,8 +1,9 @@
-package com.example.demo;
+package com.example.demo.model;
+
+import com.example.demo.authentication.User;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashSet;
 import java.util.Set;

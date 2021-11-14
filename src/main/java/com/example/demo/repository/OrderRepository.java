@@ -1,6 +1,6 @@
-package com.example.demo;
+package com.example.demo.repository;
 
-import org.springframework.data.jpa.repository.Query;
+import com.example.demo.model.Order;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

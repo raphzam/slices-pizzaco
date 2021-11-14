@@ -1,4 +1,6 @@
-package com.example.demo;
+package com.example.demo.model;
+
+import com.example.demo.model.Ingredient;
 
 import javax.persistence.*;
 import java.util.Set;

@@ -1,4 +1,7 @@
-package com.example.demo;
+package com.example.demo.model;
+
+import com.example.demo.model.Ingredient;
+import com.example.demo.model.Order;
 
 import javax.persistence.*;
 import java.text.DecimalFormat;

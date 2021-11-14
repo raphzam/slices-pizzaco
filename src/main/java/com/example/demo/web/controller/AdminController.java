@@ -1,14 +1,19 @@
-package com.example.demo;
+package com.example.demo.web.controller;
 
-import com.cloudinary.utils.ObjectUtils;
+import com.example.demo.config.CloudinaryConfiguration;
+import com.example.demo.model.Ingredient;
+import com.example.demo.repository.IngredientRepository;
+import com.example.demo.model.Order;
+import com.example.demo.repository.OrderRepository;
+import com.example.demo.model.Pizza;
+import com.example.demo.repository.PizzaRepository;
+import com.example.demo.authentication.RoleRepository;
+import com.example.demo.repository.TypeRepository;
+import com.example.demo.authentication.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-
-import java.io.IOException;
-import java.util.Map;
 
 @Controller
 public class AdminController {

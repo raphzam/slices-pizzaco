@@ -1,6 +1,7 @@
-package com.example.demo;
+package com.example.demo.authentication;
 
 
+import com.example.demo.model.Order;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.*;

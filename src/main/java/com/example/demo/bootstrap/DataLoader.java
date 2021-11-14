@@ -1,5 +1,9 @@
-package com.example.demo;
+package com.example.demo.bootstrap;
 
+import com.example.demo.authentication.Role;
+import com.example.demo.authentication.RoleRepository;
+import com.example.demo.authentication.User;
+import com.example.demo.authentication.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

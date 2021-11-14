@@ -1,5 +1,8 @@
-package com.example.demo;
+package com.example.demo.web.controller;
 
+import com.example.demo.config.NotificationService;
+import com.example.demo.authentication.User;
+import com.example.demo.authentication.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;
 import org.springframework.web.bind.annotation.RequestMapping;
