@@ -1,4 +1,4 @@
-#Slices & Pizza Co
+# Slices & Pizza Co
 
 MVC Web App for customers to register, create orders, and view order history. Admin access edit menu items and view business metrics based on customer activity.
 
